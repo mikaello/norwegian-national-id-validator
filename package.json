@@ -1,0 +1,33 @@
+{
+  "name": "norwegian-national-id-validator",
+  "version": "0.0.0",
+  "description": "Validate norwegian national identity numbers",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://"
+  },
+  "keywords": [
+    "identity-number",
+    "id-number",
+    "fødselsnummer",
+    "personnummer"
+  ],
+  "author": "Jarle Fagerheim <jarle@fagerbua.no>",
+  "license": "MIT",
+  "dependencies": {
+    "moment": "^2.17.1"
+  },
+  "devDependencies": {
+    "babel-jest": "^18.0.0",
+    "babel-plugin-transform-flow-strip-types": "^6.22.0",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-es2015": "^6.22.0",
+    "jest": "^18.1.0",
+    "jest-cli": "latest",
+    "should": "^11.1.0"
+  }
+}
