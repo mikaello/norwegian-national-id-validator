@@ -2,8 +2,10 @@
   "name": "norwegian-national-id-validator",
   "version": "0.0.0",
   "description": "Validate norwegian national identity numbers",
-  "main": "src/index.js",
+  "main": "lib/index.js",
   "scripts": {
+    "prepublish": "npm run build",
+    "build": "babel --presets es2015 src -d lib",
     "test": "jest"
   },
   "repository": {
@@ -22,6 +24,7 @@
     "moment": "^2.17.1"
   },
   "devDependencies": {
+    "babel-cli": "^6.23.0",
     "babel-jest": "^18.0.0",
     "babel-plugin-transform-flow-strip-types": "^6.22.0",
     "babel-polyfill": "^6.23.0",
