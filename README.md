@@ -1,5 +1,7 @@
 # norwegian-national-id-validator
 
+![Travis build status](https://travis-ci.org/mikaello/norwegian-national-id-validator.svg?branch=master)
+
 Validate Norwegian national identity numbers (birth number, D-number, H-number and FH-number).
 
 ## Installation
