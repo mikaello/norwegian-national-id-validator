@@ -1,6 +1,6 @@
 {
   "name": "norwegian-national-id-validator",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Validate norwegian national identity numbers",
   "main": "lib/index.js",
   "scripts": {
@@ -15,6 +15,7 @@
   "keywords": [
     "identity-number",
     "id-number",
+    "ssn",
     "fødselsnummer",
     "personnummer"
   ],
