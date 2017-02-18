@@ -11,6 +11,7 @@ export function validateNorwegianIdNumber(idNumber: string): boolean {
   const trimmed = idNumber.trim()
   if (isNaN(trimmed)) return false
   if (trimmed.length !== 11) return false
+  if (!isValidCheckDigits(trimmed)) return false
   const type = idNumberType(trimmed)
   if (type === 'FHNumber') return true
   else return possibleAgesOfPersonWithIdNumber(trimmed).length > 0
@@ -80,4 +81,23 @@ function date(elevenDigitsWithDDMMYY: string): moment[] {
     })
     .filter(date => date.isValid())
   return possibleDates
+}
+
+function isValidCheckDigits(elevenDigits: string): boolean {
+  const staticSequenceFirstCheckDigit = [3, 7, 6, 1, 8, 9, 4, 5, 2, 1]
+  const staticSequenceSecondCheckDigit = [5, 4, 3, 2, 7, 6, 5, 4, 3, 2, 1]
+
+  const elevenDigitsArray = elevenDigits.split('').map(Number)
+
+  return isValidCheckDigit(staticSequenceFirstCheckDigit, elevenDigitsArray) &&
+    isValidCheckDigit(staticSequenceSecondCheckDigit, elevenDigitsArray)
+}
+
+function isValidCheckDigit(staticSequence: number[], elevenDigits: number[]): boolean {
+  const productSum = staticSequence.reduce(
+    (acc, value, index) => (acc + (value * elevenDigits[index])),
+    0,
+  )
+
+  return (productSum % 11) === 0
 }
