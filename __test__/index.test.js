@@ -30,6 +30,13 @@ describe('Norwegian ID number validation', () => {
     validateNorwegianIdNumber('24088951559').should.be.false()
   })
 
+  it('does not accept ID numbers with invalid check digits', () => {
+    validateNorwegianIdNumber('81234567803').should.be.false()
+    validateNorwegianIdNumber('01415612381').should.be.false()
+    validateNorwegianIdNumber('03119975255').should.be.false()
+    validateNorwegianIdNumber('67047000658').should.be.false()
+  })
+
   it('works with D numbers', () => {
     for (const number of validNumbers.DNumbers) {
       validateNorwegianIdNumber(number).should.be.true()
