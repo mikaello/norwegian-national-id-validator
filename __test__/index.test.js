@@ -37,15 +37,13 @@ describe('Norwegian ID number validation', () => {
   })
 
   it('works with FH numbers', () => {
-    // if we implement checksum validation these might fail
-    validateNorwegianIdNumber('81234567890').should.be.true()
-    validateNorwegianIdNumber('91234567890').should.be.true()
+    validateNorwegianIdNumber('81234567802').should.be.true()
+    validateNorwegianIdNumber('91234567883').should.be.true()
   })
 
   it('works with H numbers', () => {
-    // if we implement checksum validation these might fail
-    validateNorwegianIdNumber('01415612345').should.be.true()
-    validateNorwegianIdNumber('01535612345').should.be.false()
+    validateNorwegianIdNumber('01415612385').should.be.true()
+    validateNorwegianIdNumber('01535612303').should.be.false()
   })
 })
 
@@ -56,21 +54,18 @@ describe('A Norwegian person number (last 5 digits of ID number)', () => {
   })
 
   it('belongs to a person born in the 1800s or 2000s if the three first digits are in the [500, 750) range', () => {
-    // if we implement checksum validation these might fail
-    possibleAgesOfPersonWithIdNumber('03119850925').should.deepEqual([118])
-    possibleAgesOfPersonWithIdNumber('03110250925').should.deepEqual([14])
+    possibleAgesOfPersonWithIdNumber('04119850938').should.deepEqual([118])
+    possibleAgesOfPersonWithIdNumber('04110250989').should.deepEqual([14])
   })
 
   it('belongs to a person born in the 1900s or 2000s if the three first digits are in the [900, 1000) range', () => {
-    // if we implement checksum validation these might fail
-    possibleAgesOfPersonWithIdNumber('03111590925').should.deepEqual([101, 1])
-    possibleAgesOfPersonWithIdNumber('03115690925').should.deepEqual([60])
+    possibleAgesOfPersonWithIdNumber('03111590981').should.deepEqual([101, 1])
+    possibleAgesOfPersonWithIdNumber('03115690905').should.deepEqual([60])
   })
 
   it('belongs to a person born in the 2000s if the three first digits are in the [750, 900) range', () => {
-    // if we implement checksum validation these might fail
-    possibleAgesOfPersonWithIdNumber('03110175225').should.deepEqual([15])
-    possibleAgesOfPersonWithIdNumber('03119975225').should.deepEqual([])
+    possibleAgesOfPersonWithIdNumber('03110175255').should.deepEqual([15])
+    possibleAgesOfPersonWithIdNumber('03119975246').should.deepEqual([])
   })
 
   it('is not part of an FH number', () => {
