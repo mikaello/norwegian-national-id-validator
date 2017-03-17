@@ -16,7 +16,7 @@ npm install norwegian-national-id-validator --save
 ## Usage
 
 ### `validateNorwegianIdNumber(value)`
-This method validates if the given value is a valid Norwegian national identity number. NOTE: Validation of check digits (the two last digits in an ID-number) is not yet implemented, see #1.
+This method validates if the given value is a valid Norwegian national identity number.
 
 ### `possibleAgesOfPersonWithIdNumber(value)`
 This method returns a list with all the possible ages that a person with an ID equal to the given value can have.
