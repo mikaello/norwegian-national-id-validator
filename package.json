@@ -4,7 +4,7 @@
   "description": "Validate norwegian national identity numbers",
   "main": "lib/index.js",
   "scripts": {
-    "prepublish": "npm run build",
+    "prepare": "npm run build",
     "build": "babel --presets @babel/preset-env src -d lib",
     "test": "jest"
   },
