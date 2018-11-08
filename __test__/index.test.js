@@ -1,4 +1,5 @@
 import should from 'should'
+import MockDate from 'mockdate'
 
 import { validNumbers } from './listOfPersonalIdNumbers'
 import { possibleAgesOfPersonWithIdNumber, validateNorwegianIdNumber } from'../src/index'
@@ -55,6 +56,8 @@ describe('Norwegian ID number validation', () => {
 })
 
 describe('A Norwegian person number (last 5 digits of ID number)', () => {
+  beforeEach(() => { MockDate.set('06/18/2017')})
+  afterEach(() => { MockDate.reset() })
 
   it('belongs to a person born in the 1900s if the three first digits are in the [0, 500) range', () => {
     possibleAgesOfPersonWithIdNumber('03119849925').should.deepEqual([18])
