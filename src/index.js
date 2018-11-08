@@ -18,24 +18,33 @@ export function validateNorwegianIdNumber(idNumber: string): boolean {
 }
 
 export function possibleAgesOfPersonWithIdNumber(elevenDigits: string): number[] {
-  return possibleBirthDatesOfIdNumber(elevenDigits)
-    .map(birthDate => moment().diff(birthDate, 'years'))
-    .filter(age => age >= 0 && age < 125)
+  const possibleAge = possibleAgeOfPersonWithIdNumber(elevenDigits);
+  return possibleAge == null ? [] : [possibleAge];
+}
+
+export function possibleAgeOfPersonWithIdNumber(elevenDigits: string): ?number {
+  const birthDate = possibleBirthDateOfIdNumber(elevenDigits)
+  if (birthDate == null) {
+    return undefined
+  }
+
+  const years = moment().diff(birthDate, 'years')
+  return years >= 0 && years < 125 ? years : undefined;
 }
 
 export function idNumberContainsBirthDate(elevenDigits: string): boolean {
   return idNumberType(elevenDigits) !== 'FHNumber'
 }
 
-function possibleBirthDatesOfIdNumber(elevenDigits: string): moment {
-  if (elevenDigits.length !== 11) return []
+function possibleBirthDateOfIdNumber(elevenDigits: string): ?moment {
+  if (elevenDigits.length !== 11) return undefined
   const type = idNumberType(elevenDigits)
   switch (type) {
     case 'birthNumber': return possibleBirthDateOfBirthNumber(elevenDigits)
     case 'DNumber': return possibleBirthDateOfDNumber(elevenDigits)
     case 'HNumber': return possibleBirthDateOfHNumber(elevenDigits)
   }
-  return []
+  return undefined
 }
 
 function idNumberType(elevenDigits: string): IDNumberType {
@@ -47,40 +56,37 @@ function idNumberType(elevenDigits: string): IDNumberType {
   else return 'birthNumber'
 }
 
-function possibleBirthDateOfBirthNumber(elevenDigits: string): moment[] {
-  return date(elevenDigits)
+function possibleBirthDateOfBirthNumber(elevenDigits: string): ?moment {
+  return getBirthDate(elevenDigits)
 }
 
-function possibleBirthDateOfHNumber(elevenDigits: string): moment[] {
+function possibleBirthDateOfHNumber(elevenDigits: string): ?moment {
   const correctedThirdDigit = (parseInt(elevenDigits[2]) - 4).toString()
-  return date(elevenDigits.slice(0, 2) + correctedThirdDigit + elevenDigits.slice(3,11))
+  return getBirthDate(elevenDigits.slice(0, 2) + correctedThirdDigit + elevenDigits.slice(3,11))
 }
 
-function possibleBirthDateOfDNumber(elevenDigits: string): moment[] {
+function possibleBirthDateOfDNumber(elevenDigits: string): ?moment {
   const correctedFirstDigit = (parseInt(elevenDigits[0]) - 4).toString()
-  return date(correctedFirstDigit + elevenDigits.slice(1, 11))
+  return getBirthDate(correctedFirstDigit + elevenDigits.slice(1, 11))
 }
 
-function date(elevenDigitsWithDDMMYY: string): moment[] {
+function getBirthDate(elevenDigitsWithDDMMYY: string): ?moment {
   const DDMM = elevenDigitsWithDDMMYY.slice(0,4)
   const YY = elevenDigitsWithDDMMYY.slice(4,6)
+  const YY_int = parseInt(YY);
   const ageGroupNumber = parseInt(elevenDigitsWithDDMMYY.slice(6,9))
-  let centuryPrefixes = ['19']
-  if (ageGroupNumber >= 500 && ageGroupNumber < 1000) {
-    centuryPrefixes = ['20']
+
+  let centuryPrefix = '20';
+  if (ageGroupNumber >= 0 && ageGroupNumber < 500) {
+    centuryPrefix = '19'
+  } else if (ageGroupNumber >= 500 && ageGroupNumber < 750 && YY_int >= 54) {
+    centuryPrefix = '18'
+  } else if (ageGroupNumber >= 900 && ageGroupNumber < 1000 && YY_int >= 40) {
+    centuryPrefix = '19'
   }
-  if (ageGroupNumber >= 500 && ageGroupNumber < 750) {
-    centuryPrefixes = ['20', '18']
-  }
-  if (ageGroupNumber >= 900 && ageGroupNumber < 1000) {
-    centuryPrefixes = ['19', '20']
-  }
-  const possibleDates = centuryPrefixes
-    .map(century => {
-      return moment(DDMM + century + YY, 'DDMMYYYY', true)
-    })
-    .filter(date => date.isValid())
-  return possibleDates
+
+  const birthDate = moment(DDMM + centuryPrefix + YY, 'DDMMYYYY', true)
+  return birthDate.isValid() ? birthDate : undefined;
 }
 
 function isValidCheckDigits(elevenDigits: string): boolean {
