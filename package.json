@@ -2,11 +2,14 @@
   "name": "norwegian-national-id-validator",
   "version": "1.2.0",
   "description": "Validate norwegian national identity numbers",
-  "main": "lib/index.js",
+  "main": "lib/index.bs.js",
   "scripts": {
     "prepare": "npm run build",
-    "build": "babel --presets @babel/preset-env src -d lib",
-    "test": "jest"
+    "build": "bsb -make-world",
+    "start": "bsb -make-world -w",
+    "clean": "bsb -clean-world",
+    "test": "npm run build && jest --coverage && npm run coverage",
+    "watch:jest": "jest --coverage --watchAll"
   },
   "repository": {
     "type": "git",
@@ -28,10 +31,15 @@
     "@babel/cli": "^7.1.5",
     "@babel/core": "^7.1.5",
     "@babel/preset-env": "^7.1.5",
+    "@glennsl/bs-jest": "^0.4.5",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^23.6.0",
     "babel-plugin-transform-flow-strip-types": "^6.22.0",
+    "bs-platform": "^4.0.7",
     "jest": "^23.6.0",
     "mockdate": "^2.0.2"
+  },
+  "jest": {
+    "testPathIgnorePatterns":["__tests__/testdata"]
   }
 }

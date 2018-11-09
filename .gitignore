@@ -13,3 +13,6 @@ node_modules
 
 
 lib/
+.DS_Store
+.merlin
+.bsb.lock

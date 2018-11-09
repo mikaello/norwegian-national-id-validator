@@ -1,6 +1,6 @@
 import MockDate from 'mockdate'
 
-import { validNumbers } from './listOfPersonalIdNumbers'
+import { validNumbers } from './testdata/listOfPersonalIdNumbers'
 import { possibleAgeOfPersonWithIdNumber, validateNorwegianIdNumber, isBirthNumber } from'../src/index'
 
 
