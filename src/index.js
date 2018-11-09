@@ -107,3 +107,25 @@ function isValidCheckDigit(staticSequence: number[], elevenDigits: number[]): bo
 
   return (productSum % 11) === 0
 }
+
+export function isBirthNumber(birthNumber: string): boolean {
+    birthNumber = birthNumber.toString();
+    if(!birthNumber || birthNumber.length !== 11){
+        return false;
+    }
+
+    var _sum = function(birthNumber, factors){
+        var sum = 0;
+        for(let i = 0, l = factors.length; i < l; ++i){
+            sum += parseInt(birthNumber.charAt(i),10) * factors[i];
+        }
+        return sum;
+    };
+
+    var checksum1 = 11 - (_sum(birthNumber, [3, 7, 6, 1, 8, 9, 4, 5, 2]) % 11);
+    if (checksum1 === 11) checksum1 = 0;
+    var checksum2 = 11 - (_sum(birthNumber, [5, 4, 3, 2, 7, 6, 5, 4, 3, 2]) % 11);
+    if (checksum2 === 11) checksum2 = 0;
+    return checksum1 === parseInt(birthNumber.charAt(9), 10)
+            && checksum2 === parseInt(birthNumber.charAt(10), 10);
+};

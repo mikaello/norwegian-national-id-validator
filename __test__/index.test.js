@@ -1,7 +1,7 @@
 import MockDate from 'mockdate'
 
 import { validNumbers } from './listOfPersonalIdNumbers'
-import { possibleAgeOfPersonWithIdNumber, validateNorwegianIdNumber } from'../src/index'
+import { possibleAgeOfPersonWithIdNumber, validateNorwegianIdNumber, isBirthNumber } from'../src/index'
 
 
 describe('Norwegian ID number validation', () => {
@@ -85,5 +85,11 @@ describe('A Norwegian person number (last 5 digits of ID number)', () => {
     for (const length in [...Array(11).keys()]) {
       expect(possibleAgeOfPersonWithIdNumber('1'.repeat(length))).toBeUndefined()
     }
+  })
+
+
+  it('works', () => {
+	  //	validateNorwegianIdNumber('03111590981').should.be.true()
+	  expect(isBirthNumber('03111590981')).toBeTruthy()
   })
 })
