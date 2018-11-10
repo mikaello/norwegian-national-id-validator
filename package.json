@@ -8,7 +8,7 @@
     "build": "bsb -make-world",
     "start": "bsb -make-world -w",
     "clean": "bsb -clean-world",
-    "test": "npm run build && jest --coverage && npm run coverage",
+    "test": "npm run build && jest --coverage",
     "watch:jest": "jest --coverage --watchAll"
   },
   "repository": {
@@ -40,6 +40,8 @@
     "mockdate": "^2.0.2"
   },
   "jest": {
-    "testPathIgnorePatterns":["__tests__/testdata"]
+    "testPathIgnorePatterns": [
+      "__tests__/testdata"
+    ]
   }
 }
