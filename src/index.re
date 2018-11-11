@@ -57,3 +57,20 @@ let iDNumberType = elevenDigits =>
       };
     };
   };
+
+let getBirthCenturyFromIdNumber = elevenDigitsWithDDMMYY => {
+  let ddmm = String.sub(elevenDigitsWithDDMMYY, 0, 4);
+  let yy = String.sub(elevenDigitsWithDDMMYY, 4, 2);
+
+  let ageGroupNumber =
+    String.sub(elevenDigitsWithDDMMYY, 6, 3) |> int_of_string;
+  ();
+
+  let centurPrefix =
+    if (ageGroupNumber >= 0 && ageGroupNumber < 500) {
+      "19";
+    } else {
+      "20";
+    };
+  ();
+};
