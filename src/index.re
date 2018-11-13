@@ -10,7 +10,7 @@ let isValidIdNumberFormat = idCandidate => {
       && Utils.stringIsAllInts(trimmedIdCandidate)) {
     true;
   } else {
-    true;
+    false;
   };
 };
 
@@ -36,7 +36,7 @@ let isValidCheckDigits = elevenDigits => {
   && isValidCheckDigit(staticSequenceSecondCheckDigit, elevenDigitsArray);
 };
 
-let iDNumberType = elevenDigits =>
+let getIdNumberType = elevenDigits =>
   if (!(
         isValidIdNumberFormat(elevenDigits)
         && isValidCheckDigits(elevenDigits)
