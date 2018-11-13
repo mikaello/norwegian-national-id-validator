@@ -44,33 +44,32 @@ let iDNumberType = elevenDigits =>
     None;
   } else {
     let firstDigit = elevenDigits.[0] |> int_of_char;
+    let thirdDigit = elevenDigits.[2] |> int_of_char;
+
     if (firstDigit == 8 || firstDigit == 9) {
       Some(FHNumber);
     } else if (firstDigit >= 4 && firstDigit <= 7) {
       Some(DNumber);
+    } else if (thirdDigit == 4 || thirdDigit == 5) {
+      Some(HNumber);
     } else {
-      let thirdDigit = elevenDigits.[2] |> int_of_char;
-      if (thirdDigit == 4 || thirdDigit == 5) {
-        Some(HNumber);
-      } else {
-        Some(BirthNumber);
-      };
+      Some(BirthNumber);
     };
   };
 
 let getBirthCenturyFromIdNumber = elevenDigitsWithDDMMYY => {
-  let ddmm = String.sub(elevenDigitsWithDDMMYY, 0, 4);
-  let yy = String.sub(elevenDigitsWithDDMMYY, 4, 2);
-
+  let yy = String.sub(elevenDigitsWithDDMMYY, 4, 2) |> int_of_string;
   let ageGroupNumber =
     String.sub(elevenDigitsWithDDMMYY, 6, 3) |> int_of_string;
-  ();
 
-  let centurPrefix =
-    if (ageGroupNumber >= 0 && ageGroupNumber < 500) {
-      "19";
-    } else {
-      "20";
-    };
-  ();
+  if (ageGroupNumber >= 500 && ageGroupNumber < 750 && yy >= 54) {
+    "18";
+  } else if (ageGroupNumber >= 0
+             && ageGroupNumber < 500
+             || ageGroupNumber >= 900
+             && yy >= 40) {
+    "19";
+  } else {
+    "20";
+  };
 };
