@@ -36,11 +36,11 @@ let isValidCheckDigits = elevenDigits => {
   && isValidCheckDigit(staticSequenceSecondCheckDigit, elevenDigitsArray);
 };
 
+let isValidId = idCandidate =>
+  isValidIdNumberFormat(idCandidate) && isValidCheckDigits(idCandidate);
+
 let getIdNumberType = elevenDigits =>
-  if (!(
-        isValidIdNumberFormat(elevenDigits)
-        && isValidCheckDigits(elevenDigits)
-      )) {
+  if (!isValidId(elevenDigits)) {
     None;
   } else {
     let firstDigit = elevenDigits.[0] |> int_of_char;
@@ -73,3 +73,45 @@ let getBirthCenturyFromIdNumber = elevenDigitsWithDDMMYY => {
     "20";
   };
 };
+
+let getBirthDate = birthNumber => {
+  let birthCentury = getBirthCenturyFromIdNumber(birthNumber);
+  String.sub(birthNumber, 0, 6) ++ birthCentury;
+};
+
+let possibleBirthDateOfBirthNumber = birthNumber => getBirthDate(birthNumber);
+let possibleBirthDateOfHNumber = hNumber => {
+  let correctedThirdDigit = (hNumber.[2] |> int_of_char) - 4 |> string_of_int;
+  getBirthDate(
+    String.sub(hNumber, 0, 2)
+    ++ correctedThirdDigit
+    ++ String.sub(hNumber, 3, 7),
+  );
+};
+let possibleBirthDateOfDNumber = dNumber => {
+  let correctedFirstDigit = (dNumber.[0] |> int_of_char) - 4 |> string_of_int;
+  getBirthDate(correctedFirstDigit ++ String.sub(dNumber, 1, 10));
+};
+
+let possibleBirthDateOfIdNumber = idNumber =>
+  switch (getIdNumberType(idNumber)) {
+  | Some(BirthNumber) => Some(possibleBirthDateOfBirthNumber(idNumber))
+  | Some(DNumber) => Some(possibleBirthDateOfDNumber(idNumber))
+  | Some(HNumber) => Some(possibleBirthDateOfHNumber(idNumber))
+  | Some(FHNumber) => None
+  | None => None
+  };
+
+let possibleAgeOfPersonWithIdNumber = idNumber =>
+  if (!isValidId(idNumber)) {
+    None;
+  } else {
+    let birthDate = possibleBirthDateOfIdNumber(idNumber);
+    let thisYear = Js.Date.make() |> Js.Date.getFullYear;
+
+    switch (birthDate) {
+    | None => None
+    | Some(date) =>
+      Some(thisYear -. (date |> Js.Date.fromString |> Js.Date.getFullYear))
+    };
+  };

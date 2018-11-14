@@ -1,8 +1,6 @@
 open Jest;
 open Index;
 
-/* STARTER PACK FOR REWRITING TESTS */
-
 describe("isValidIdNumberFormat", () => {
   open ExpectJs;
 
