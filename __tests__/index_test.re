@@ -69,3 +69,22 @@ describe("getBirthCenturyFromIdNumber", () => {
     expect(getBirthCenturyFromIdNumber("42059199212")) |> toBe("19")
   );
 });
+
+describe("getBirthDate - functions", () => {
+  open Expect;
+
+  test("birth date is found for D-number", () =>
+    expect(possibleBirthDateOfDNumber("67047000642")) |> toBe("27041970")
+  );
+
+  test("birth date is found for birth number", () =>
+    expect(possibleBirthDateOfBirthNumber("01010139461"))
+    |> toBe("01011901")
+  );
+
+  test("birth date is found for H-number", ()
+    /* TODO: Invalid check digits */
+    =>
+      expect(possibleBirthDateOfHNumber("01410100131")) |> toBe("01011901")
+    );
+});
