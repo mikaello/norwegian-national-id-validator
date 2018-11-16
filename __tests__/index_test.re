@@ -1,9 +1,8 @@
 open Jest;
+open ExpectJs;
 open Index;
 
 describe("isValidIdNumberFormat", () => {
-  open ExpectJs;
-
   test("eleven digits is valid", () =>
     expect(isValidIdNumberFormat("12345678901")) |> toBeTruthy
   );
@@ -23,8 +22,6 @@ describe("isValidIdNumberFormat", () => {
 
 /*
  describe("isValidCheckDigits", () => {
-   open ExpectJs;
-
    test("that valid check digits", () =>
      expect(isValidCheckDigits("01010107543")) |> toBeTruthy
    );
@@ -36,7 +33,6 @@ describe("isValidIdNumberFormat", () => {
 
 /*
  describe("getIdNumberType", () => {
-   open Expect;
    test("detect D-number", () =>
      expect(getIdNumberType("42059199212")) |> toEqual(Some(DNumber))
    );
@@ -47,8 +43,6 @@ describe("isValidIdNumberFormat", () => {
  */
 
 describe("getBirthCenturyFromIdNumber", () => {
-  open Expect;
-
   /* ID numbers does not have valid check digits, otherwise valid */
   test("18th century for normal birthnumber", () =>
     expect(getBirthCenturyFromIdNumber("01015450131")) |> toBe("18")
@@ -71,8 +65,6 @@ describe("getBirthCenturyFromIdNumber", () => {
 });
 
 describe("getBirthDate - functions", () => {
-  open Expect;
-
   test("birth date is found for D-number", () =>
     expect(possibleBirthDateOfDNumber("67047000642")) |> toBe("27041970")
   );
@@ -87,4 +79,18 @@ describe("getBirthDate - functions", () => {
     =>
       expect(possibleBirthDateOfHNumber("01410100131")) |> toBe("01011901")
     );
+});
+
+describe("validateNorwegianIdNumber", () => {
+  test("knows that no one could possibly be born on 29. Feb 1999", () =>
+    expect(validateNorwegianIdNumber("29029900157")) |> toBe(false)
+  );
+
+  test("knows that it is possible to be born on 29. Feb 1996", () =>
+    expect(validateNorwegianIdNumber("29029600013")) |> toBe(true)
+  );
+
+  test("does not accept future valid ID numbers", () =>
+    expect(validateNorwegianIdNumber("24088951559")) |> toBe(false)
+  );
 });

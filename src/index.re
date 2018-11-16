@@ -116,6 +116,23 @@ let possibleAgeOfPersonWithIdNumber = idNumber =>
     switch (birthDate) {
     | None => None
     | Some(date) =>
-      Some(thisYear -. (date |> Js.Date.fromString |> Js.Date.getFullYear))
+      Some(
+        thisYear
+        -. (date |> Js.Date.fromString |> Js.Date.getFullYear)
+        |> int_of_float,
+      )
+    };
+  };
+
+let validateNorwegianIdNumber = idNumber =>
+  if (!isValidId(idNumber)) {
+    false;
+  } else {
+    let idType = getIdNumberType(idNumber);
+
+    if (idType == Some(FHNumber)) {
+      true;
+    } else {
+      possibleAgeOfPersonWithIdNumber(idNumber) != None;
     };
   };
