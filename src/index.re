@@ -14,23 +14,28 @@ let isValidIdNumberFormat = idCandidate => {
   };
 };
 
-let isValidCheckDigit = (staticSequence, elevenDigits) => {
-  let productSum =
-    List.fold_left2(
-      (checkAcc, staticDigit, idDigit) => checkAcc + staticDigit * idDigit,
-      0,
-      staticSequence,
-      elevenDigits,
-    );
+let isValidCheckDigit = (factors, idNumber) =>
+  switch (Belt.List.take(idNumber, List.length(factors))) {
+  | None => false
+  | Some(id) =>
+    let productSum =
+      List.fold_left2(
+        (checkAcc, factor, idDigit) => checkAcc + factor * idDigit,
+        0,
+        factors,
+        id,
+      );
 
-  productSum mod 11 == 0;
-};
+    productSum mod 11 == 0;
+  };
 
 let isValidCheckDigits = elevenDigits => {
+  /* Prepending a '1' to factors to simplify calculation */
   let staticSequenceFirstCheckDigit = [3, 7, 6, 1, 8, 9, 4, 5, 2, 1];
   let staticSequenceSecondCheckDigit = [5, 4, 3, 2, 7, 6, 5, 4, 3, 2, 1];
 
-  let elevenDigitsArray = List.map(int_of_char, Utils.explode(elevenDigits));
+  let elevenDigitsArray =
+    List.map(Utils.charToRealInt, Utils.explode(elevenDigits));
 
   isValidCheckDigit(staticSequenceFirstCheckDigit, elevenDigitsArray)
   && isValidCheckDigit(staticSequenceSecondCheckDigit, elevenDigitsArray);
@@ -43,8 +48,8 @@ let getIdNumberType = elevenDigits =>
   if (!isValidId(elevenDigits)) {
     None;
   } else {
-    let firstDigit = elevenDigits.[0] |> int_of_char;
-    let thirdDigit = elevenDigits.[2] |> int_of_char;
+    let firstDigit = elevenDigits.[0] |> Utils.charToRealInt;
+    let thirdDigit = elevenDigits.[2] |> Utils.charToRealInt;
 
     if (firstDigit == 8 || firstDigit == 9) {
       Some(FHNumber);

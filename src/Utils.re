@@ -14,3 +14,5 @@ let rec explode = aString =>
 
 let stringIsAllInts = allIntCandidate =>
   allIntCandidate |> explode |> List.for_all(charIsInt);
+
+let charToRealInt = char => String.make(1, char) |> int_of_string;

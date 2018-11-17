@@ -4,7 +4,7 @@
   "sources": [
     {
       "dir": "src",
-      "subdirs" : true
+      "subdirs": true
     },
     {
       "dir": "__tests__",
@@ -13,14 +13,13 @@
   ],
   "package-specs": {
     "module": "commonjs",
-    "in-source": false 
+    "in-source": false
   },
   "suffix": ".bs.js",
-  "bs-dependencies": [
-  ],
+  "bs-dependencies": [],
   "bs-dev-dependencies": ["@glennsl/bs-jest"],
   "warnings": {
-    "error" : "+101"
+    "error": "+101"
   },
   "namespace": true,
   "refmt": 3

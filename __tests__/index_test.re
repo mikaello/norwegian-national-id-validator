@@ -20,27 +20,23 @@ describe("isValidIdNumberFormat", () => {
   );
 });
 
-/*
- describe("isValidCheckDigits", () => {
-   test("that valid check digits", () =>
-     expect(isValidCheckDigits("01010107543")) |> toBeTruthy
-   );
-   test("that invalid check digits", () =>
-     expect(isValidCheckDigits("01010107549")) |> toBeFalsy
-   );
- });
- */
+describe("isValidCheckDigits", () => {
+  test("that valid check digits", () =>
+    expect(isValidCheckDigits("01010107543")) |> toBeTruthy
+  );
+  test("that invalid check digits", () =>
+    expect(isValidCheckDigits("01010107549")) |> toBeFalsy
+  );
+});
 
-/*
- describe("getIdNumberType", () => {
-   test("detect D-number", () =>
-     expect(getIdNumberType("42059199212")) |> toEqual(Some(DNumber))
-   );
-   test("detect birth number", () =>
-     expect(getIdNumberType("01010102576")) |> toEqual(Some(BirthNumber))
-   );
- });
- */
+describe("getIdNumberType", () => {
+  test("detect D-number", () =>
+    expect(getIdNumberType("42059199212")) |> toEqual(Some(DNumber))
+  );
+  test("detect birth number", () =>
+    expect(getIdNumberType("01010102576")) |> toEqual(Some(BirthNumber))
+  );
+});
 
 describe("getBirthCenturyFromIdNumber", () => {
   /* ID numbers does not have valid check digits, otherwise valid */
