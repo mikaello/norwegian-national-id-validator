@@ -25,6 +25,7 @@
   "author": "Jarle Fagerheim <jarle@fagerbua.no>",
   "license": "MIT",
   "dependencies": {
+    "@mobily/re-date": "^0.7.2",
     "moment": "^2.22.2"
   },
   "devDependencies": {

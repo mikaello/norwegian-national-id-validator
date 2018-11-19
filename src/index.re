@@ -122,16 +122,12 @@ let possibleAgeOfPersonWithIdNumber = idNumber =>
     | None => None
     | Some(dateString) =>
       let date = String.sub(dateString, 0, 2) |> float_of_string;
-      let month = String.sub(dateString, 2, 2) |> float_of_string;
+      let month = (String.sub(dateString, 2, 2) |> float_of_string) -. 1.; /* Zero indexed */
       let year = String.sub(dateString, 4, 4) |> float_of_string;
 
-      if (Js.Date.makeWithYMD(~year, ~month, ~date, ())
-          |> Js.Date.getDate
-          |> Js.Float.isNaN) {
-        Js.log("Invalid date " ++ dateString);
-        None; /* Check if date is invalid */
+      if (!ReDate.isValid(~year, ~month, ~date, ())) {
+        None;
       } else {
-        Js.log("VALID " ++ dateString);
         Some(
           thisYear
           -. (dateString |> Js.Date.fromString |> Js.Date.getFullYear)

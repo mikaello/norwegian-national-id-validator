@@ -607,6 +607,11 @@
   dependencies:
     jest "^23.5.0"
 
+"@mobily/re-date@^0.7.2":
+  version "0.7.2"
+  resolved "https://registry.yarnpkg.com/@mobily/re-date/-/re-date-0.7.2.tgz#edc2ad94ce71a010a02843e9489aad4583faee3b"
+  integrity sha512-aye4Yrx9sgbb2pkihfb/1ZYykm/77G92+tjom3sYnfXZ240C5nbnuuZQaqV0gfqpztrJl1LnAuHMRkgMkV0Nwg==
+
 abab@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/abab/-/abab-2.0.0.tgz#aba0ab4c5eee2d4c79d3487d85450fb2376ebb0f"
