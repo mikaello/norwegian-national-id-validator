@@ -35,7 +35,7 @@ let isValidCheckDigits = elevenDigits => {
   let staticSequenceSecondCheckDigit = [5, 4, 3, 2, 7, 6, 5, 4, 3, 2, 1];
 
   let elevenDigitsArray =
-    List.map(Utils.charToRealInt, Utils.explode(elevenDigits));
+    List.map(Utils.charToAsciiInt, Utils.explode(elevenDigits));
 
   isValidCheckDigit(staticSequenceFirstCheckDigit, elevenDigitsArray)
   && isValidCheckDigit(staticSequenceSecondCheckDigit, elevenDigitsArray);
@@ -48,8 +48,8 @@ let getIdNumberType = elevenDigits =>
   if (!isValidId(elevenDigits)) {
     None;
   } else {
-    let firstDigit = elevenDigits.[0] |> Utils.charToRealInt;
-    let thirdDigit = elevenDigits.[2] |> Utils.charToRealInt;
+    let firstDigit = elevenDigits.[0] |> Utils.charToAsciiInt;
+    let thirdDigit = elevenDigits.[2] |> Utils.charToAsciiInt;
 
     if (firstDigit == 8 || firstDigit == 9) {
       Some(FHNumber);
