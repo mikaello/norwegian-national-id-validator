@@ -8,40 +8,47 @@ Validate Norwegian national identity numbers ([birth number](https://en.wikipedi
 ## Installation
 
 Install the package via `npm`:
+
 ```
 npm install --save norwegian-national-id-validator
 ```
+
 or
+
 ```
 yarn add norwegian-national-id-validator
 ```
 
-
 ## Usage
 
 ### `validateNorwegianIdNumber(value)`
+
 This method validates if the given value is a valid Norwegian national identity number.
 
 ### `possibleAgeOfPersonWithIdNumber(value)`
-This method returns a list with all the possible ages that a person with an ID equal to the given value can have. 
+
+This method returns a list with all the possible ages that a person with an ID equal to the given value can have.
 
 Returns `undefined` when birth date could not be determined (e.g. for _FH-numbers_ and invalid ID-numbers).
 
 ## Example
 
 ```js
-import { possibleAgeOfPersonWithIdNumber, validateNorwegianIdNumber } from 'norwegian-national-id-validator'
+import {
+  possibleAgeOfPersonWithIdNumber,
+  validateNorwegianIdNumber,
+} from 'norwegian-national-id-validator';
 
-validateNorwegianIdNumber('29029900157')
+validateNorwegianIdNumber('29029900157');
 // => false
 
-validateNorwegianIdNumber('29029600013')
+validateNorwegianIdNumber('29029600013');
 // => true
 
-possibleAgeOfPersonWithIdNumber('03111590925')
+possibleAgeOfPersonWithIdNumber('03111590925');
 // => 1
 
-possibleAgeOfPersonWithIdNumber('03110175225')
+possibleAgeOfPersonWithIdNumber('03110175225');
 // => 15
 ```
 
@@ -53,6 +60,9 @@ To run the tests for this module:
 npm test
 ```
 
+## Id number resources
+
+https://www.miles.no/blogg/tema/teknisk/validering-av-norske-data
 
 ## License
 
