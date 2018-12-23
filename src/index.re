@@ -125,7 +125,7 @@ let possibleAgeOfPersonWithIdNumber = idNumber =>
       let month = (String.sub(dateString, 2, 2) |> float_of_string) -. 1.; /* Zero indexed */
       let year = String.sub(dateString, 4, 4) |> float_of_string;
 
-      if (!ReDate.isValid(~year, ~month, ~date, ())) {
+      if (!Utils.isValidDate(~year, ~month, ~date, ())) {
         None;
       } else {
         Some(

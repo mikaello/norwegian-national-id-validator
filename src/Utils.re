@@ -16,3 +16,30 @@ let stringIsAllInts = allIntCandidate =>
   allIntCandidate |> explode |> List.for_all(charIsInt);
 
 let charToAsciiInt = char => String.make(1, char) |> int_of_string;
+
+let isValidDate =
+    (~year, ~month, ~date, ~hours=0., ~minutes=0., ~seconds=0., ()) => {
+  let makeLastDayOfMonth = date =>
+    Js.Date.(
+      makeWithYMD(
+        ~year=date |> getFullYear,
+        ~month=(date |> getMonth) +. 1.,
+        ~date=0.,
+        (),
+      )
+    );
+
+  year <= 199999.
+  && year >= (-199999.)
+  && month <= 11.
+  && month >= 0.
+  && date >= 1.
+  && date
+  <= Js.Date.(makeWithYM(~year, ~month, ()) |> makeLastDayOfMonth |> getDate)
+  && hours >= 0.
+  && hours <= 23.
+  && minutes >= 0.
+  && minutes <= 59.
+  && seconds >= 0.
+  && seconds <= 59.;
+};
