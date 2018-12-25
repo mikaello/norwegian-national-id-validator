@@ -62,6 +62,15 @@ let getIdNumberType = elevenDigits =>
     };
   };
 
+let isValidBirthNumber = birthNumberCandidate =>
+  getIdNumberType(birthNumberCandidate) == Some(BirthNumber);
+let isValidDNumber = dNumberCandidate =>
+  getIdNumberType(dNumberCandidate) == Some(DNumber);
+let isValidHNumber = hNumberCandidate =>
+  getIdNumberType(hNumberCandidate) == Some(HNumber);
+let isValidFHNumber = fhNumberCandidate =>
+  getIdNumberType(fhNumberCandidate) == Some(FHNumber);
+
 let getBirthCenturyFromIdNumber = elevenDigitsWithDDMMYY => {
   let yy = String.sub(elevenDigitsWithDDMMYY, 4, 2) |> int_of_string;
   let ageGroupNumber =
