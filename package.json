@@ -21,9 +21,7 @@
   ],
   "author": "Jarle Fagerheim <jarle@fagerbua.no>",
   "license": "MIT",
-  "dependencies": {
-    "moment": "^2.22.2"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@babel/cli": "^7.1.5",
     "@babel/core": "^7.1.5",
