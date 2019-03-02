@@ -1,7 +1,12 @@
 import MockDate from 'mockdate'
 
 import { validNumbers } from './listOfPersonalIdNumbers'
-import { possibleAgeOfPersonWithIdNumber, validateNorwegianIdNumber } from'../src/index'
+import {
+  possibleAgeOfPersonWithIdNumber,
+  validateNorwegianIdNumber,
+  diffYears,
+  isValidDate,
+} from'../src/index'
 
 
 describe('Norwegian ID number validation', () => {
@@ -85,5 +90,37 @@ describe('A Norwegian person number (last 5 digits of ID number)', () => {
     for (const length in [...Array(11).keys()]) {
       expect(possibleAgeOfPersonWithIdNumber('1'.repeat(length))).toBeUndefined()
     }
+  })
+})
+
+describe("helper functions", () => {
+  test("diffYears() returns 0 when no diff", () => {
+    expect(diffYears(new Date(), new Date())).toBe(0);
+  })
+
+  test("diffYears() returns correct diff for same dates two year apart", () => {
+    expect(diffYears(new Date("1995-12-17"), new Date("1993-12-17"))).toBe(2);
+  })
+
+  test("diffYears() returns negative number when first argument is later in time", () => {
+    expect(diffYears(new Date("1993-12-17"), new Date("1995-12-17"))).toBe(-2);
+  })
+
+  test("diffYears() returns one year diff when it only is one and a half year difference", () => {
+    expect(diffYears(new Date("1995-01-01"), new Date("1993-06-01"))).toBe(1);
+  })
+
+  test("isValiddate() returns valid for valid dates", () => {
+    expect(isValidDate(new Date("1995-01-20"), "1995", "01", "20")).toBeTruthy();
+    expect(isValidDate(new Date("2020-02-29"), "2020", "02", "29")).toBeTruthy();
+  })
+
+  test("isValiddate() returns invalid for leap date not in leap year", () => {
+    expect(isValidDate(new Date("2019-02-29"), "2019", "02", "29")).toBeFalsy();
+  })
+
+  test("isValiddate() returns invalid when expectations is not met", () => {
+    expect(isValidDate(new Date("2019-01-15"), "2000", "01", "15")).toBeFalsy();
+    expect(isValidDate(new Date("not good"), "2000", "01", "15")).toBeFalsy();
   })
 })
