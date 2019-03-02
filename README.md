@@ -19,24 +19,31 @@ yarn add norwegian-national-id-validator
 
 ## Usage
 
-### `validateNorwegianIdNumber(value)`
-This method validates if the given value is a valid Norwegian national identity number.
+### validateNorwegianIdNumber(value)
+This function checks if the given value is a valid Norwegian national identity number. Returns `true` for valid, and `false` for invalid ID-number.
 
-### `possibleAgeOfPersonWithIdNumber(value)`
-This method returns a list with all the possible ages that a person with an ID equal to the given value can have. 
-
-Returns `undefined` when birth date could not be determined (e.g. for _FH-numbers_ and invalid ID-numbers).
-
-## Example
+**Examples**
 
 ```js
-import { possibleAgeOfPersonWithIdNumber, validateNorwegianIdNumber } from 'norwegian-national-id-validator'
+import { validateNorwegianIdNumber } from 'norwegian-national-id-validator'
 
 validateNorwegianIdNumber('29029900157')
 // => false
 
 validateNorwegianIdNumber('29029600013')
 // => true
+```
+
+### possibleAgeOfPersonWithIdNumber(value)
+This function returns the age of a person with given Norwegian national identity number.
+
+Returns `undefined` when birth date could not be determined (e.g. for _FH-numbers_ and invalid ID-numbers).
+
+**Examples**
+
+```js
+
+import { possibleAgeOfPersonWithIdNumber } from 'norwegian-national-id-validator'
 
 possibleAgeOfPersonWithIdNumber('03111590925')
 // => 1
