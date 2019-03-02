@@ -3,11 +3,24 @@
  *
  */
 
-function diffYearsFromNow (date) {
-  return (new Date().getFullYear() - date.getFullYear() - 1);
+export function diffYears(startDate, endDate) {
+  const yStart = startDate.getFullYear();
+  const mStart = startDate.getMonth();
+  const dStart = startDate.getDate();
+
+  const yEnd = endDate.getFullYear();
+  const mEnd = endDate.getMonth();
+  const dEnd = endDate.getDate();
+
+  const diff = yStart - yEnd;
+  if (mEnd > mStart || (mEnd === mStart && dEnd > dStart)) {
+    return diff -1;
+  }
+
+  return diff;
 }
  
-function isValidDate (date, expectedYear, expectedMonth, expectedDay) {
+export function isValidDate(date, expectedYear, expectedMonth, expectedDay) {
   return (
     date.getFullYear() === Number(expectedYear) &&
     (date.getMonth() + 1) === Number(expectedMonth) &&
@@ -39,7 +52,7 @@ export function possibleAgeOfPersonWithIdNumber(elevenDigits: string): ?number {
     return undefined
   }
 
-  const years = diffYearsFromNow(birthDate);
+  const years = diffYears(new Date(), birthDate);
   return years >= 0 && years < 125 ? years : undefined;
 }
 
@@ -82,7 +95,8 @@ function possibleBirthDateOfDNumber(elevenDigits: string): ?Date {
 }
 
 function getBirthDate(elevenDigitsWithDDMMYY: string): ?Date {
-  const DDMM = elevenDigitsWithDDMMYY.slice(0,4)
+  const DD = elevenDigitsWithDDMMYY.slice(0,2)
+  const MM = elevenDigitsWithDDMMYY.slice(2,4)
   const YY = elevenDigitsWithDDMMYY.slice(4,6)
   const YY_int = parseInt(YY);
   const ageGroupNumber = parseInt(elevenDigitsWithDDMMYY.slice(6,9))
