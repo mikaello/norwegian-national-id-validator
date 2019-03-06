@@ -4,7 +4,8 @@ logs
 npm-debug.log*
 
 .vscode
-
+*.bs.js
+*.gen.ts*
 
 # Dependency directories
 node_modules
