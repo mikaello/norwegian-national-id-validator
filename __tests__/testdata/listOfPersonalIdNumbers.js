@@ -1,5 +1,4 @@
 export const validNumbers = {
-  DNumbers: ['42059199212', '67047000642'],
   '01-01-1901': {
     men: [
       '01010100131',

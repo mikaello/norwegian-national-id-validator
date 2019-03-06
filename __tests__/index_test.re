@@ -21,19 +21,34 @@ describe("isValidIdNumberFormat", () => {
 });
 
 describe("isValidCheckDigits", () => {
-  test("that valid check digits", () =>
+  test("valid check digits", () =>
     expect(isValidCheckDigits("01010107543")) |> toBeTruthy
   );
-  test("that invalid check digits", () =>
+  test("invalid check digits", () =>
     expect(isValidCheckDigits("01010107549")) |> toBeFalsy
   );
 });
 
-describe("getIdNumberType", () => {
-  test("detect D-number", () =>
+describe("getIdNumberType returns correct type", () => {
+  test("D-number 1", () =>
     expect(getIdNumberType("42059199212")) |> toEqual(Some(DNumber))
   );
-  test("detect birth number", () =>
+  test("D-number 2", () =>
+    expect(getIdNumberType("67047000642")) |> toEqual(Some(DNumber))
+  );
+  test("FH-number 1", () =>
+    expect(getIdNumberType("81234567802")) |> toEqual(Some(FHNumber))
+  );
+  test("FH-number 2", () =>
+    expect(getIdNumberType("91234567883")) |> toEqual(Some(FHNumber))
+  );
+  test("H-number 1", () =>
+    expect(getIdNumberType("01415612385")) |> toEqual(Some(HNumber))
+  );
+  test("H-number 2", () =>
+    expect(getIdNumberType("01535612303")) |> toEqual(Some(HNumber))
+  );
+  test("birth number", () =>
     expect(getIdNumberType("01010102576")) |> toEqual(Some(BirthNumber))
   );
 });
@@ -71,7 +86,7 @@ describe("getBirthDate - functions", () => {
   );
 
   test("birth date is found for H-number", ()
-    /* TODO: Invalid check digits */
+    /* TODO: This test has is invalid check digits */
     =>
       expect(possibleBirthDateOfHNumber("01410100131")) |> toBe("01011901")
     );
@@ -90,3 +105,82 @@ describe("validateNorwegianIdNumber", () => {
     expect(validateNorwegianIdNumber("24088951559")) |> toBe(false)
   );
 });
+
+describe("does not accept ID numbers with invalid check digits", () => {
+  test("invalid check digit 1", () =>
+    expect(validateNorwegianIdNumber("81234567803")) |> toBe(false)
+  );
+  test("invalid check digit 2", () =>
+    expect(validateNorwegianIdNumber("01415612381")) |> toBe(false)
+  );
+  test("invalid check digit 3", () =>
+    expect(validateNorwegianIdNumber("03119975255")) |> toBe(false)
+  );
+  test("invalid check digit 4", () =>
+    expect(validateNorwegianIdNumber("67047000658")) |> toBe(false)
+  );
+});
+
+[%bs.raw
+  {|
+describe("validateNorwegianIdNumber rawJS", () => {
+  // Path of this file when compiled is: ./lib/js/__tests__/index_test.bs.js
+  var validNumbers = require('../../../__tests__/testdata/listOfPersonalIdNumbers').validNumbers;
+  var validateNorwegianIdNumber = require('../../../src/index').validateNorwegianIdNumber;
+
+  it('works for valid birth numbers for men born on 1. Jan 1901', () => {
+    for (var number of validNumbers['01-01-1901'].men) {
+      expect(validateNorwegianIdNumber(number)).toBeTruthy()
+    }
+  })
+
+  it('works for valid birth numbers for women born on 1. Jan 1901', () => {
+    for (var number of validNumbers['01-01-1901'].women) {
+      expect(validateNorwegianIdNumber(number)).toBeTruthy()
+    }
+  })
+})
+|}
+];
+
+[%bs.raw
+  {|
+describe('A Norwegian person number (last 5 digits of ID number)', () => {
+  var MockDate = require('mockdate');
+  // Path of this file when compiled is: ./lib/js/__tests__/index_test.bs.js
+  var possibleAgeOfPersonWithIdNumber = require('../../../src/index.js').possibleAgeOfPersonWithIdNumber;
+
+  beforeEach(() => { MockDate.set('06/18/2017')})
+  afterEach(() => { MockDate.reset() })
+
+  it('belongs to a person born in the 1900s if the three first digits are in the [0, 500) range', () => {
+    expect(possibleAgeOfPersonWithIdNumber('03119849925')).toBe(18)
+  })
+
+  it('belongs to a person born in the 1800s or 2000s if the three first digits are in the [500, 750) range', () => {
+    expect(possibleAgeOfPersonWithIdNumber('04119850938')).toBe(118)
+    expect(possibleAgeOfPersonWithIdNumber('04110250989')).toBe(14)
+  })
+
+  it('belongs to a person born in the 1900s or 2000s if the three first digits are in the [900, 1000) range', () => {
+    expect(possibleAgeOfPersonWithIdNumber('03111590981')).toBe(1)
+    expect(possibleAgeOfPersonWithIdNumber('03115690905')).toBe(60)
+  })
+
+  it('belongs to a person born in the 2000s if the three first digits are in the [750, 900) range', () => {
+    expect(possibleAgeOfPersonWithIdNumber('03110175255')).toBe(15)
+    expect(possibleAgeOfPersonWithIdNumber('03119975246')).toBeUndefined()
+  })
+
+  it('is not part of an FH number', () => {
+    expect(possibleAgeOfPersonWithIdNumber('83119849925')).toBeUndefined()
+  })
+
+  it('cannot be meaningfully extracted from an ID number shorter than 11 digits', () => {
+    for (const length in [...Array(11).keys()]) {
+      expect(possibleAgeOfPersonWithIdNumber('1'.repeat(length))).toBeUndefined()
+    }
+  })
+})
+|}
+];
