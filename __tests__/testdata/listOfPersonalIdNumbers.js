@@ -1,4 +1,4 @@
-export const validNumbers = {
+exports.validNumbers = {
   '01-01-1901': {
     men: [
       '01010100131',
