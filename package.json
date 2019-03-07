@@ -31,5 +31,9 @@
     "mockdate": "^2.0.2",
     "parcel": "^1.12.0",
     "typescript": "^3.3.3333"
+  },
+  "prettier": {
+    "trailingComma": "all",
+    "singleQuote": true
   }
 }
