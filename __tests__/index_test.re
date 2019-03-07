@@ -124,9 +124,8 @@ describe("does not accept ID numbers with invalid check digits", () => {
 [%bs.raw
   {|
 describe("validateNorwegianIdNumber rawJS", () => {
-  // Path of this file when compiled is: ./lib/js/__tests__/index_test.bs.js
-  var validNumbers = require('../../../__tests__/testdata/listOfPersonalIdNumbers').validNumbers;
-  var validateNorwegianIdNumber = require('../../../lib/index').validateNorwegianIdNumber;
+  var validNumbers = require('./testdata/listOfPersonalIdNumbers').validNumbers;
+  var validateNorwegianIdNumber = require('../src/index.bs').validateNorwegianIdNumber;
 
   it('works for valid birth numbers for men born on 1. Jan 1901', () => {
     for (var number of validNumbers['01-01-1901'].men) {
@@ -147,8 +146,7 @@ describe("validateNorwegianIdNumber rawJS", () => {
   {|
 describe('A Norwegian person number (last 5 digits of ID number)', () => {
   var MockDate = require('mockdate');
-  // Path of this file when compiled is: ./lib/js/__tests__/index_test.bs.js
-  var possibleAgeOfPersonWithIdNumber = require('../../../lib/index').possibleAgeOfPersonWithIdNumber;
+  var possibleAgeOfPersonWithIdNumber = require('../src/index.bs').possibleAgeOfPersonWithIdNumber;
 
   beforeEach(() => { MockDate.set('06/18/2017')})
   afterEach(() => { MockDate.reset() })
