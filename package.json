@@ -5,10 +5,10 @@
   "main": "src/index.bs.js",
   "scripts": {
     "prepare": "npm run build",
+    "pretest": "npm run build",
     "build": "bsb -make-world",
     "start": "bsb -make-world -w",
     "clean": "bsb -clean-world",
-    "pretest": "yarn run build",
     "test": "jest"
   },
   "repository": {

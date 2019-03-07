@@ -3,29 +3,29 @@
 [![Travis build status](https://travis-ci.org/mikaello/norwegian-national-id-validator.svg?branch=master)](https://travis-ci.org/mikaello/norwegian-national-id-validator)
 [![npm](https://img.shields.io/npm/v/norwegian-national-id-validator.svg?style=flat-square)](https://www.npmjs.com/package/norwegian-national-id-validator)
 
-Validate Norwegian national identity numbers ([birth number](https://en.wikipedia.org/wiki/National_identification_number#Norway) ([fødselsnummer](https://no.wikipedia.org/wiki/F%C3%B8dselsnummer)), D-number, H-number and FH-number).
+Validate Norwegian national identity numbers ([birth number](https://en.wikipedia.org/wiki/National_identification_number#Norway) ([fødselsnummer](https://no.wikipedia.org/wiki/F%C3%B8dselsnummer)), D-number, H-number and FH-number) with Javascript or ReasonML.
 
 ## Installation
-
-Install the package via `npm`:
-
-```
-npm install --save norwegian-national-id-validator
-```
-
-or
 
 ```
 yarn add norwegian-national-id-validator
 ```
 
+Bucklescript users must also add this to `.bsconfig.json`:
+
+```diff
+"bs-dependencies": [
++  "norwegian-national-id-validator"
+]
+```
+
 ## Usage
 
-### `validateNorwegianIdNumber(value)`
+### `validateNorwegianIdNumber(value: string): bool`
 
 This method validates if the given value is a valid Norwegian national identity number.
 
-### `possibleAgeOfPersonWithIdNumber(value)`
+### `possibleAgeOfPersonWithIdNumber(value: string): string | undefined`
 
 This method returns a list with all the possible ages that a person with an ID equal to the given value can have.
 
@@ -33,37 +33,37 @@ Returns `undefined` when birth date could not be determined (e.g. for _FH-number
 
 ## Example
 
+Javascript:
+
 ```js
 import {
   possibleAgeOfPersonWithIdNumber,
   validateNorwegianIdNumber,
 } from 'norwegian-national-id-validator';
 
-validateNorwegianIdNumber('29029900157');
-// => false
+validateNorwegianIdNumber('29029900157'); // => false
+validateNorwegianIdNumber('29029600013'); // => true
 
-validateNorwegianIdNumber('29029600013');
-// => true
-
-possibleAgeOfPersonWithIdNumber('03111590925');
-// => 1
-
-possibleAgeOfPersonWithIdNumber('03110175225');
-// => 15
+possibleAgeOfPersonWithIdNumber('03111590925'); // => 1
+possibleAgeOfPersonWithIdNumber('03110175225'); // => 15
 ```
 
-## Tests
+Bucklescript / ReasonML:
 
-To run the tests for this module:
+```reason
+open NorwegianNationalIdValidator;
 
-```
-npm test
+validateNorwegianIdNumber("29029900157") |> Js.log; // => false
+validateNorwegianIdNumber("29029600013") |> Js.log; // => true
+
+possibleAgeOfPersonWithIdNumber("03111590925") |> Js.log; // => 1
+possibleAgeOfPersonWithIdNumber("03110175225") |> Js.log; // => 15
 ```
 
 ## Id number resources
 
 https://www.miles.no/blogg/tema/teknisk/validering-av-norske-data
 
-## License
+## Contribute
 
-[MIT](LICENSE)
+If you find bugs or have suggestions for enhancements, feel free to open an issue or PR. This project is written in ReasonML, so it is the `*.re` files that should be edited. Start compiling with `yarn start` and run tests with `yarn test`.
