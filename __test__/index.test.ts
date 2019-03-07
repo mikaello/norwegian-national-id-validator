@@ -88,7 +88,7 @@ describe('A Norwegian person number (last 5 digits of ID number)', () => {
 
   it('cannot be meaningfully extracted from an ID number shorter than 11 digits', () => {
     for (const length in [...Array(11).keys()]) {
-      expect(possibleAgeOfPersonWithIdNumber('1'.repeat(length))).toBeUndefined()
+      expect(possibleAgeOfPersonWithIdNumber('1'.repeat(Number(length)))).toBeUndefined()
     }
   })
 })

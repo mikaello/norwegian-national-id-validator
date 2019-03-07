@@ -1,8 +1,3 @@
-/*
- * @flow
- *
- */
-
 export function diffYears(startDate, endDate) {
   const yStart = startDate.getFullYear();
   const mStart = startDate.getMonth();
@@ -31,9 +26,13 @@ export function isValidDate(date, expectedYear, expectedMonth, expectedDay) {
 
 type IDNumberType = 'birthNumber' | 'DNumber' | 'HNumber' | 'FHNumber'
 
+/**
+ * Checks if the given value is a valid Norwegian national identity number.
+ * @returns `true` for valid, and `false` for invalid ID-number.
+ */
 export function validateNorwegianIdNumber(idNumber: string): boolean {
   const trimmed = idNumber.trim()
-  if (isNaN(trimmed)) return false
+  if (isNaN(Number(trimmed))) return false
   if (trimmed.length !== 11) return false
   if (!isValidCheckDigits(trimmed)) return false
   const type = idNumberType(trimmed)
@@ -46,7 +45,11 @@ export function possibleAgesOfPersonWithIdNumber(elevenDigits: string): number[]
   return possibleAge == null ? [] : [possibleAge];
 }
 
-export function possibleAgeOfPersonWithIdNumber(elevenDigits: string): ?number {
+/**
+ * Returns the age of a person with given Norwegian national identity number.
+ * Returns `undefined` when birth date could not be determined (e.g. for FH-numbers and invalid ID-numbers).
+ */
+export function possibleAgeOfPersonWithIdNumber(elevenDigits: string): number | undefined {
   const birthDate = possibleBirthDateOfIdNumber(elevenDigits)
   if (birthDate == null) {
     return undefined
@@ -60,7 +63,7 @@ export function idNumberContainsBirthDate(elevenDigits: string): boolean {
   return idNumberType(elevenDigits) !== 'FHNumber'
 }
 
-function possibleBirthDateOfIdNumber(elevenDigits: string): ?Date {
+function possibleBirthDateOfIdNumber(elevenDigits: string): Date | undefined {
   if (elevenDigits.length !== 11) return undefined
   const type = idNumberType(elevenDigits)
   switch (type) {
@@ -80,21 +83,21 @@ function idNumberType(elevenDigits: string): IDNumberType {
   else return 'birthNumber'
 }
 
-function possibleBirthDateOfBirthNumber(elevenDigits: string): ?Date {
+function possibleBirthDateOfBirthNumber(elevenDigits: string): Date | undefined {
   return getBirthDate(elevenDigits)
 }
 
-function possibleBirthDateOfHNumber(elevenDigits: string): ?Date {
+function possibleBirthDateOfHNumber(elevenDigits: string): Date | undefined {
   const correctedThirdDigit = (parseInt(elevenDigits[2]) - 4).toString()
   return getBirthDate(elevenDigits.slice(0, 2) + correctedThirdDigit + elevenDigits.slice(3,11))
 }
 
-function possibleBirthDateOfDNumber(elevenDigits: string): ?Date {
+function possibleBirthDateOfDNumber(elevenDigits: string): Date | undefined {
   const correctedFirstDigit = (parseInt(elevenDigits[0]) - 4).toString()
   return getBirthDate(correctedFirstDigit + elevenDigits.slice(1, 11))
 }
 
-function getBirthDate(elevenDigitsWithDDMMYY: string): ?Date {
+function getBirthDate(elevenDigitsWithDDMMYY: string): Date | undefined {
   const DD = elevenDigitsWithDDMMYY.slice(0,2)
   const MM = elevenDigitsWithDDMMYY.slice(2,4)
   const YY = elevenDigitsWithDDMMYY.slice(4,6)
