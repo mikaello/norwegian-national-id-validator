@@ -3,10 +3,11 @@
   "version": "1.3.0",
   "description": "Validate norwegian national identity numbers",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "prepare": "npm run build",
-    "build": "parcel build src/index.ts",
-    "start": "parcel watch src/index.ts",
+    "build": "tsc",
+    "start": "tsc --watch",
     "test": "jest"
   },
   "homepage": "https://github.com/mikaello/norwegian-national-id-validator",
@@ -26,14 +27,20 @@
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
+    "@types/jest": "^24.0.9",
     "@types/mockdate": "^2.0.0",
     "jest": "^24.1.0",
     "mockdate": "^2.0.2",
-    "parcel": "^1.12.0",
+    "ts-jest": "^24.0.0",
     "typescript": "^3.3.3333"
   },
   "prettier": {
     "trailingComma": "all",
     "singleQuote": true
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    }
   }
 }

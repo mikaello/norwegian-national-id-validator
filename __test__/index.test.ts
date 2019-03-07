@@ -1,4 +1,4 @@
-import MockDate from 'mockdate';
+import { set, reset } from 'mockdate';
 
 import { validNumbers } from './listOfPersonalIdNumbers';
 import {
@@ -59,10 +59,10 @@ describe('Norwegian ID number validation', () => {
 
 describe('A Norwegian person number (last 5 digits of ID number)', () => {
   beforeEach(() => {
-    MockDate.set('06/18/2017');
+    set('06/18/2017');
   });
   afterEach(() => {
-    MockDate.reset();
+    reset();
   });
 
   it('belongs to a person born in the 1900s if the three first digits are in the [0, 500) range', () => {

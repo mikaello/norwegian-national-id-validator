@@ -1,4 +1,4 @@
-export function diffYears(startDate, endDate) {
+export function diffYears(startDate: Date, endDate: Date) {
   const yStart = startDate.getFullYear();
   const mStart = startDate.getMonth();
   const dStart = startDate.getDate();
@@ -15,7 +15,12 @@ export function diffYears(startDate, endDate) {
   return diff;
 }
 
-export function isValidDate(date, expectedYear, expectedMonth, expectedDay) {
+export function isValidDate(
+  date: Date,
+  expectedYear: string,
+  expectedMonth: string,
+  expectedDay: string,
+): boolean {
   return (
     date.getFullYear() === Number(expectedYear) &&
     date.getMonth() + 1 === Number(expectedMonth) &&
