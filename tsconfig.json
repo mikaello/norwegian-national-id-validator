@@ -2,6 +2,7 @@
   "compilerOptions": {
     "target": "es5",
     "lib": ["es6"],
+    "downlevelIteration": true,
     "module": "commonjs",
     "noImplicitAny": true,
     "strict": true,
