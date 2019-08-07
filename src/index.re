@@ -120,6 +120,10 @@ let possibleBirthDateOfIdNumber = idNumber =>
   | None => None
   };
 
+/**
+ * Get the age of a person with given Norwegian national identity number. Returns `undefined`
+ * when birth date could not be determined (e.g. for FH-numbers and invalid ID-numbers).
+ */
 let possibleAgeOfPersonWithIdNumber = idNumber =>
   if (!isValidId(idNumber)) {
     None;
@@ -151,6 +155,10 @@ let possibleAgeOfPersonWithIdNumber = idNumber =>
     };
   };
 
+/**
+ * Checks if the given value is a valid Norwegian national identity number.
+ * @returns `true` for valid, and `false` for invalid ID-number.
+ */
 let validateNorwegianIdNumber = idNumber =>
   if (!isValidId(idNumber)) {
     false;

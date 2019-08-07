@@ -25,7 +25,7 @@ Bucklescript users must also add this to `bsconfig.json`:
 
 This function validates if the given value is a valid Norwegian national identity number.
 
-### `possibleAgeOfPersonWithIdNumber(value: string): string | undefined`
+### `possibleAgeOfPersonWithIdNumber(value: string): int | undefined`
 
 This functions returns a list with all the possible ages that a person with an ID equal to the given value can have.
 
