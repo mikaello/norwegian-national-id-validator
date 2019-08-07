@@ -28,8 +28,8 @@
   "dependencies": {},
   "devDependencies": {
     "@glennsl/bs-jest": "^0.4.9",
-    "bs-platform": "^5.0.6",
-    "mockdate": "^2.0.2"
+    "bs-jest-date-mock": "^1.0.1",
+    "bs-platform": "^5.0.6"
   },
   "jest": {
     "testPathIgnorePatterns": [

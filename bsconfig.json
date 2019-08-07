@@ -17,7 +17,7 @@
   },
   "suffix": ".bs.js",
   "bs-dependencies": [],
-  "bs-dev-dependencies": ["@glennsl/bs-jest"],
+  "bs-dev-dependencies": ["@glennsl/bs-jest", "bs-jest-date-mock"],
   "warnings": {
     "error": "+101"
   },

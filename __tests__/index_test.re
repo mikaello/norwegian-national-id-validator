@@ -142,43 +142,72 @@ describe("validateNorwegianIdNumber rawJS", () => {
 |}
 ];
 
-[%bs.raw
-  {|
-describe('A Norwegian person number (last 5 digits of ID number)', () => {
-  var MockDate = require('mockdate');
-  var possibleAgeOfPersonWithIdNumber = require('../src/index.bs').possibleAgeOfPersonWithIdNumber;
+describe("A Norwegian person number (last 5 digits of ID number)", () => {
+  open BsJestDateMock;
 
-  beforeEach(() => { MockDate.set('06/18/2017')})
-  afterEach(() => { MockDate.reset() })
+  afterEach(() => clear());
+  beforeEach(() =>
+    advanceTo(
+      Js.Date.makeWithYMDH(
+        ~year=2017.0,
+        ~month=6.0,
+        ~date=18.0,
+        ~hours=12.0,
+        (),
+      ),
+    )
+  );
 
-  it('belongs to a person born in the 1900s if the three first digits are in the [0, 500) range', () => {
-    expect(possibleAgeOfPersonWithIdNumber('03119849925')).toBe(18)
-  })
+  test(
+    "belongs to a person born in the 1900s if the three first digits are in the [0, 500) range",
+    () =>
+    expect(possibleAgeOfPersonWithIdNumber("03119849925"))
+    |> toBe(Some(18))
+  );
 
-  it('belongs to a person born in the 1800s or 2000s if the three first digits are in the [500, 750) range', () => {
-    expect(possibleAgeOfPersonWithIdNumber('04119850938')).toBe(118)
-    expect(possibleAgeOfPersonWithIdNumber('04110250989')).toBe(14)
-  })
+  test(
+    "belongs to a person born in the 1800s or 2000s if the three first digits are in the [500, 750) range #1",
+    () =>
+    expect(possibleAgeOfPersonWithIdNumber("04119850938"))
+    |> toBe(Some(118))
+  );
 
-  it('belongs to a person born in the 1900s or 2000s if the three first digits are in the [900, 1000) range', () => {
-    expect(possibleAgeOfPersonWithIdNumber('03111590981')).toBe(1)
-    expect(possibleAgeOfPersonWithIdNumber('03115690905')).toBe(60)
-  })
+  test(
+    "belongs to a person born in the 1800s or 2000s if the three first digits are in the [500, 750) range #2",
+    () =>
+    expect(possibleAgeOfPersonWithIdNumber("04110250989"))
+    |> toBe(Some(14))
+  );
 
-  it('belongs to a person born in the 2000s if the three first digits are in the [750, 900) range', () => {
-    expect(possibleAgeOfPersonWithIdNumber('03110175255')).toBe(15)
-    expect(possibleAgeOfPersonWithIdNumber('03119975246')).toBeUndefined()
-  })
+  test(
+    "belongs to a person born in the 1900s or 2000s if the three first digits are in the [900, 1000) range #1",
+    () =>
+    expect(possibleAgeOfPersonWithIdNumber("03111590981")) |> toBe(Some(1))
+  );
+  test(
+    "belongs to a person born in the 1900s or 2000s if the three first digits are in the [900, 1000) range #2",
+    () =>
+    expect(possibleAgeOfPersonWithIdNumber("03115690905"))
+    |> toBe(Some(60))
+  );
 
-  it('is not part of an FH number', () => {
-    expect(possibleAgeOfPersonWithIdNumber('83119849925')).toBeUndefined()
-  })
+  test(
+    "belongs to a person born in the 2000s if the three first digits are in the [750, 900) range",
+    () =>
+    expect(possibleAgeOfPersonWithIdNumber("03110175255"))
+    |> toBe(Some(15))
+  );
+  test("returns None when asking for age of a future date", () =>
+    expect(possibleAgeOfPersonWithIdNumber("03119975246")) |> toBe(None)
+  );
 
-  it('cannot be meaningfully extracted from an ID number shorter than 11 digits', () => {
-    for (const length in [...Array(11).keys()]) {
-      expect(possibleAgeOfPersonWithIdNumber('1'.repeat(length))).toBeUndefined()
-    }
-  })
-})
-|}
-];
+  test("is not part of an FH number", () =>
+    expect(possibleAgeOfPersonWithIdNumber("83119849925")) |> toBe(None)
+  );
+
+  test(
+    "cannot be meaningfully extracted from an ID number shorter than 11 digits",
+    () =>
+    expect(possibleAgeOfPersonWithIdNumber("1111111111")) |> toBe(None)
+  );
+});
