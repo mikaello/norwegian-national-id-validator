@@ -51,6 +51,9 @@ describe("getIdNumberType returns correct type", () => {
   test("birth number", () =>
     expect(getIdNumberType("01010102576")) |> toEqual(Some(BirthNumber))
   );
+  test("rubbish", () =>
+    expect(getIdNumberType("12345678901")) |> toEqual(None)
+  );
 });
 
 describe("getBirthCenturyFromIdNumber", () => {
