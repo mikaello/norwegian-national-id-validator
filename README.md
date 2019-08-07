@@ -11,7 +11,7 @@ Validate Norwegian national identity numbers ([birth number](https://en.wikipedi
 yarn add norwegian-national-id-validator
 ```
 
-Bucklescript users must also add this to `.bsconfig.json`:
+Bucklescript users must also add this to `bsconfig.json`:
 
 ```diff
 "bs-dependencies": [
@@ -23,17 +23,17 @@ Bucklescript users must also add this to `.bsconfig.json`:
 
 ### `validateNorwegianIdNumber(value: string): bool`
 
-This method validates if the given value is a valid Norwegian national identity number.
+This function validates if the given value is a valid Norwegian national identity number.
 
 ### `possibleAgeOfPersonWithIdNumber(value: string): string | undefined`
 
-This method returns a list with all the possible ages that a person with an ID equal to the given value can have.
+This functions returns a list with all the possible ages that a person with an ID equal to the given value can have.
 
 Returns `undefined` when birth date could not be determined (e.g. for _FH-numbers_ and invalid ID-numbers).
 
 ## Example
 
-Javascript:
+### Javascript:
 
 ```js
 import {
@@ -46,9 +46,10 @@ validateNorwegianIdNumber('29029600013'); // => true
 
 possibleAgeOfPersonWithIdNumber('03111590925'); // => 1
 possibleAgeOfPersonWithIdNumber('03110175225'); // => 15
+possibleAgeOfPersonWithIdNumber('rubbish') === undefined; // => true
 ```
 
-Bucklescript / ReasonML:
+### Bucklescript / ReasonML:
 
 ```reason
 open NorwegianNationalIdValidator;
@@ -58,6 +59,7 @@ validateNorwegianIdNumber("29029600013") |> Js.log; // => true
 
 possibleAgeOfPersonWithIdNumber("03111590925") |> Js.log; // => 1
 possibleAgeOfPersonWithIdNumber("03110175225") |> Js.log; // => 15
+(possibleAgeOfPersonWithIdNumber("rubbish") === None) |> Js.log; // => true
 ```
 
 ## Id number resources
