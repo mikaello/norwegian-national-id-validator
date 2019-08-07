@@ -125,7 +125,6 @@ let possibleAgeOfPersonWithIdNumber = idNumber =>
     None;
   } else {
     let birthDate = possibleBirthDateOfIdNumber(idNumber);
-    let thisYear = Js.Date.make() |> Js.Date.getFullYear;
 
     switch (birthDate) {
     | None => None
@@ -137,11 +136,17 @@ let possibleAgeOfPersonWithIdNumber = idNumber =>
       if (!Utils.isValidDate(~year, ~month, ~date, ())) {
         None;
       } else {
-        Some(
-          thisYear
-          -. (dateString |> Js.Date.fromString |> Js.Date.getFullYear)
-          |> int_of_float,
-        );
+        let diff =
+          Utils.diffYears(
+            Js.Date.make(),
+            Js.Date.makeWithYMD(~year, ~month, ~date, ()),
+          );
+
+        if (diff < 0) {
+          None; /* No support for ID numbers in the future */
+        } else {
+          Some(diff);
+        };
       };
     };
   };
