@@ -43,3 +43,24 @@ let isValidDate =
   && seconds >= 0.
   && seconds <= 59.;
 };
+
+let diffYears = (startDate, endDate) => {
+  open Js.Date;
+  let yStart = getFullYear(startDate);
+  let mStart = getMonth(startDate);
+  let dStart = getDate(startDate);
+
+  let yEnd = getFullYear(endDate);
+  let mEnd = getMonth(endDate);
+  let dEnd = getDate(endDate);
+
+  let diff = yStart -. yEnd;
+  let correctedDiff =
+    if (mEnd > mStart || mEnd === mStart && dEnd > dStart) {
+      diff -. 1.;
+    } else {
+      diff;
+    };
+
+  correctedDiff |> int_of_float;
+};

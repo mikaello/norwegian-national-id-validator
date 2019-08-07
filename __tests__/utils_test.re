@@ -32,10 +32,27 @@ describe("stringIsAllInts", () => {
   );
 });
 
-describe("Expect.Operators", () => {
+describe("diffYears", () => {
   open! Expect.Operators;
 
-  test("==", () =>
-    expect(1 + 2) === 3
-  );
+  let testDate = Js.Date.makeWithYMD(~year=2010., ~month=5., ~date=15., ());
+
+  test("returns difference in years between dates", () => {
+    let testDate2 =
+      Js.Date.makeWithYMD(~year=2005., ~month=10., ~date=1., ());
+
+    expect(diffYears(testDate, testDate2)) === 4;
+  });
+  test("returns difference in years with months edge case", () => {
+    let testDate2 =
+      Js.Date.makeWithYMD(~year=2005., ~month=5., ~date=10., ());
+
+    expect(diffYears(testDate, testDate2)) === 5;
+  });
+  test("returns difference in years with month and date edge case", () => {
+    let testDate2 =
+      Js.Date.makeWithYMD(~year=2005., ~month=5., ~date=15., ());
+
+    expect(diffYears(testDate, testDate2)) === 5;
+  });
 });
