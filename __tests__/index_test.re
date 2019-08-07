@@ -124,17 +124,18 @@ describe("does not accept ID numbers with invalid check digits", () => {
 [%bs.raw
   {|
 describe("validateNorwegianIdNumber rawJS", () => {
-  var validNumbers = require('./testdata/listOfPersonalIdNumbers').validNumbers;
-  var validateNorwegianIdNumber = require('../src/index.bs').validateNorwegianIdNumber;
+  var validMaleNumbers = require("./testdata/listOfPersonalIdNumbers.bs").validMaleIdNumbers;
+  var validFemaleNumbers = require("./testdata/listOfPersonalIdNumbers.bs").validFemaleIdNumbers;
+  var validateNorwegianIdNumber = require("../src/index.bs").validateNorwegianIdNumber;
 
-  it('works for valid birth numbers for men born on 1. Jan 1901', () => {
-    for (var number of validNumbers['01-01-1901'].men) {
+  it("works for valid birth numbers for men born on 1. Jan 1901", () => {
+    for (var number of validMaleNumbers) {
       expect(validateNorwegianIdNumber(number)).toBeTruthy()
     }
   })
 
-  it('works for valid birth numbers for women born on 1. Jan 1901', () => {
-    for (var number of validNumbers['01-01-1901'].women) {
+  it("works for valid birth numbers for women born on 1. Jan 1901", () => {
+    for (var number of validFemaleNumbers) {
       expect(validateNorwegianIdNumber(number)).toBeTruthy()
     }
   })
