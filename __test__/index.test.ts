@@ -1,4 +1,5 @@
 import { set, reset } from 'mockdate';
+import { register, unregister } from 'timezone-mock';
 
 import { validNumbers } from './listOfPersonalIdNumbers';
 import {
@@ -130,5 +131,30 @@ describe('helper functions', () => {
   test('isValiddate() returns invalid when expectations is not met', () => {
     expect(isValidDate(new Date('2019-01-15'), '2000', '01', '15')).toBeFalsy();
     expect(isValidDate(new Date('not good'), '2000', '01', '15')).toBeFalsy();
+  });
+});
+
+describe('does not care about current users timezone', () => {
+  beforeEach(() => {
+    register('US/Pacific');
+  });
+  afterEach(() => {
+    unregister();
+  });
+  test('isValidDate() and ISO date has no timestamp can be falsy', () => {
+    expect(isValidDate(new Date('1984-11-28'), '1984', '11', '28')).toBeFalsy();
+  });
+  test('isValidDate() and ISO date has timestamp is truthy', () => {
+    expect(isValidDate(new Date('1984-11-28T00:00:00'), '1984', '11', '28')).toBeTruthy();
+  });
+  it('validateNorwegianIdNumber() works for valid birth numbers for men born on 1. Jan 1901', () => {
+    for (const number of validNumbers['01-01-1901'].men) {
+      expect(validateNorwegianIdNumber(number)).toBeTruthy();
+    }
+  });
+  it('validateNorwegianIdNumber() works for valid birth numbers for women born on 1. Jan 1901', () => {
+    for (const number of validNumbers['01-01-1901'].women) {
+      expect(validateNorwegianIdNumber(number)).toBeTruthy();
+    }
   });
 });
