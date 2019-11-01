@@ -3279,6 +3279,11 @@ throat@^4.0.0:
   resolved "https://registry.yarnpkg.com/throat/-/throat-4.1.0.tgz#89037cbc92c56ab18926e6ba4cbb200e15672a6a"
   integrity sha1-iQN8vJLFarGJJua6TLsgDhVnKmo=
 
+timezone-mock@^1.0.8:
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/timezone-mock/-/timezone-mock-1.0.8.tgz#1b9f7af13f2bf84b7aa3d3d6e24aa17255b6037d"
+  integrity sha512-7dgx34HJPY8O/c5dbqG+I9S3TVDjrfssXmS8BNqiy8sdYvYDfM7shHpNA6VTDQWcDGyv43bE3El6YuFDQf1X3g==
+
 tmpl@1.0.x:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/tmpl/-/tmpl-1.0.4.tgz#23640dd7b42d00433911140820e5cf440e521dd1"
