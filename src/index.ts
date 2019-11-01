@@ -129,7 +129,7 @@ function getBirthDate(elevenDigitsWithDDMMYY: string): Date | undefined {
   }
 
   const fullYear = `${centuryPrefix}${YY}`;
-  const isoStr = [fullYear, MM, DD].join('-');
+  const isoStr = [fullYear, MM, DD].join('-') + 'T00:00:00';
   const birthDate = new Date(isoStr);
 
   if (!isValidDate(birthDate, fullYear, MM, DD)) {
