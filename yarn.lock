@@ -524,10 +524,10 @@
   resolved "https://registry.yarnpkg.com/@types/mockdate/-/mockdate-2.0.0.tgz#aaf388a1ead3b0f5ed6dc1611956ea7b40a57d3c"
   integrity sha1-qvOIoerTsPXtbcFhGVbqe0ClfTw=
 
-"@types/node@^12.7.8":
-  version "12.7.8"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-12.7.8.tgz#cb1bf6800238898bc2ff6ffa5702c3cadd350708"
-  integrity sha512-FMdVn84tJJdV+xe+53sYiZS4R5yn1mAIxfj+DVoNiQjTYz1+OYmjwEZr1ev9nU0axXwda0QDbYl06QHanRVH3A==
+"@types/node@^13.9.1":
+  version "13.9.1"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-13.9.1.tgz#96f606f8cd67fb018847d9b61e93997dabdefc72"
+  integrity sha512-E6M6N0blf/jiZx8Q3nb0vNaswQeEyn0XlupO+xN6DtJ6r6IT4nXrTry7zhIfYvFCl3/8Cu6WIysmUBKiqV0bqQ==
 
 "@types/stack-utils@^1.0.1":
   version "1.0.1"
@@ -3233,10 +3233,10 @@ throat@^5.0.0:
   resolved "https://registry.yarnpkg.com/throat/-/throat-5.0.0.tgz#c5199235803aad18754a667d659b5e72ce16764b"
   integrity sha512-fcwX4mndzpLQKBS1DVYhGAcYaYt7vsHNIvQV+WXMvnow5cgjPphq5CaayLaGsjRdSCKZFNGt7/GYAuXaNOiYCA==
 
-timezone-mock@^1.0.8:
-  version "1.0.8"
-  resolved "https://registry.yarnpkg.com/timezone-mock/-/timezone-mock-1.0.8.tgz#1b9f7af13f2bf84b7aa3d3d6e24aa17255b6037d"
-  integrity sha512-7dgx34HJPY8O/c5dbqG+I9S3TVDjrfssXmS8BNqiy8sdYvYDfM7shHpNA6VTDQWcDGyv43bE3El6YuFDQf1X3g==
+timezone-mock@^1.0.18:
+  version "1.0.18"
+  resolved "https://registry.yarnpkg.com/timezone-mock/-/timezone-mock-1.0.18.tgz#4b8978d6d414483711a5346435de37a1f0d20a8d"
+  integrity sha512-/q+TjPYR/tuW4gL2VZUmmSyVzun2ZFUMMFfmf4O82dZ1Yv8ymTk2lY7Ke2+dvy9bh+A27wlGUT0jKS1HZHdPIg==
 
 tmpl@1.0.x:
   version "1.0.4"
@@ -3356,10 +3356,10 @@ typedarray-to-buffer@^3.1.5:
   dependencies:
     is-typedarray "^1.0.0"
 
-typescript@^3.6.3:
-  version "3.6.3"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.6.3.tgz#fea942fabb20f7e1ca7164ff626f1a9f3f70b4da"
-  integrity sha512-N7bceJL1CtRQ2RiG0AQME13ksR7DiuQh/QehubYcghzv20tnh+MQnQIuJddTmsbqYj+dztchykemz0zFzlvdQw==
+typescript@^3.8.3:
+  version "3.8.3"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.8.3.tgz#409eb8544ea0335711205869ec458ab109ee1061"
+  integrity sha512-MYlEfn5VrLNsgudQTVJeNaQFUAI7DkhnOjdpAp4T+ku1TfQClewlbSuTVHiA+8skNBgaf02TL/kLOvig4y3G8w==
 
 union-value@^1.0.0:
   version "1.0.1"
