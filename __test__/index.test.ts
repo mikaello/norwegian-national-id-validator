@@ -7,6 +7,8 @@ import {
   validateNorwegianIdNumber,
   diffYears,
   isValidDate,
+  getGender,
+  Gender,
 } from '../src/index';
 
 describe('Norwegian ID number validation', () => {
@@ -96,6 +98,10 @@ describe('A Norwegian person number (last 5 digits of ID number)', () => {
       ).toBeUndefined();
     }
   });
+
+  it('is male if third digit in the person number is odd', () => {
+    expect(getGender('03119849925')).toEqual(Gender.Male);
+  });
 });
 
 describe('helper functions', () => {
@@ -145,7 +151,9 @@ describe('does not care about current users timezone', () => {
     expect(isValidDate(new Date('1984-11-28'), '1984', '11', '28')).toBeFalsy();
   });
   test('isValidDate() and ISO date has timestamp is truthy', () => {
-    expect(isValidDate(new Date('1984-11-28T00:00:00'), '1984', '11', '28')).toBeTruthy();
+    expect(
+      isValidDate(new Date('1984-11-28T00:00:00'), '1984', '11', '28'),
+    ).toBeTruthy();
   });
   it('validateNorwegianIdNumber() works for valid birth numbers for men born on 1. Jan 1901', () => {
     for (const number of validNumbers['01-01-1901'].men) {
