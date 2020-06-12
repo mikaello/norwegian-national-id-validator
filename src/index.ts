@@ -1,3 +1,13 @@
+/**
+ * Object-oriented API for Norwegian National ID Validator
+ * @example
+ * ```javascript
+ * import { NorwegianId } from 'norwegian-national-id-validator';
+ * 
+ * const valid = NorwegianId('0000000000');
+ * ```
+ * @param idNumber norwegian social security number
+ */
 export const NorwegianId = (idNumber: string) => {
   const valid = validateNorwegianIdNumber(idNumber);
 
@@ -38,6 +48,12 @@ export const NorwegianId = (idNumber: string) => {
   };
 };
 
+/**
+ * Calculated the difference betweeen two dates.
+ * @param startDate Date instance
+ * @param endDate Date instance
+ * @private
+ */
 export function diffYears(startDate: Date, endDate: Date) {
   const yStart = startDate.getFullYear();
   const mStart = startDate.getMonth();
@@ -55,6 +71,13 @@ export function diffYears(startDate: Date, endDate: Date) {
   return diff;
 }
 
+/**
+ * Checks if a date is valid against another
+ * @param date Date instance
+ * @param expectedYear
+ * @param expectedMonth 
+ * @param expectedDay 
+ */
 export function isValidDate(
   date: Date,
   expectedYear: string,
@@ -77,6 +100,12 @@ export enum Gender {
 
 /**
  * Checks if the given value is a valid Norwegian national identity number.
+ * @example
+ * ```javascript
+ * import { validateNorwegianIdNumber } from 'norwegian-national-id-validator';
+ * const valid = validateNorwegianIdNumber(0000000000);
+ * ```
+ * @param idNumber social security number
  * @returns `true` for valid, and `false` for invalid ID-number.
  */
 export function validateNorwegianIdNumber(idNumber: string): boolean {
@@ -89,6 +118,10 @@ export function validateNorwegianIdNumber(idNumber: string): boolean {
   else return possibleAgesOfPersonWithIdNumber(trimmed).length > 0;
 }
 
+/**
+ * Find possible age of person based of IDNumber
+ * @param elevenDigits Identification number
+ */
 export function possibleAgesOfPersonWithIdNumber(
   elevenDigits: string,
 ): number[] {
@@ -99,6 +132,7 @@ export function possibleAgesOfPersonWithIdNumber(
 /**
  * Returns the age of a person with given Norwegian national identity number.
  * Returns `undefined` when birth date could not be determined (e.g. for FH-numbers and invalid ID-numbers).
+ * @param elevenDigits Identification number
  */
 export function possibleAgeOfPersonWithIdNumber(
   elevenDigits: string,
@@ -111,11 +145,18 @@ export function possibleAgeOfPersonWithIdNumber(
   const years = diffYears(new Date(), birthDate);
   return years >= 0 && years < 125 ? years : undefined;
 }
-
+/**
+ * Check if idNumber contains birth date
+ * @param elevenDigits idNumber
+ */
 export function idNumberContainsBirthDate(elevenDigits: string): boolean {
   return idNumberType(elevenDigits) !== 'FHNumber';
 }
 
+/**
+ * Get possible birth date from IdNumber
+ * @param elevenDigits IdNumber
+ */
 function possibleBirthDateOfIdNumber(elevenDigits: string): Date | undefined {
   if (elevenDigits.length !== 11) return undefined;
   const type = idNumberType(elevenDigits);
@@ -130,6 +171,9 @@ function possibleBirthDateOfIdNumber(elevenDigits: string): Date | undefined {
   return undefined;
 }
 
+/**
+ * @private
+ */
 function idNumberType(elevenDigits: string): IDNumberType {
   const firstDigit = parseInt(elevenDigits[0]);
   if (firstDigit === 8 || firstDigit === 9) return 'FHNumber';
@@ -139,12 +183,20 @@ function idNumberType(elevenDigits: string): IDNumberType {
   else return 'birthNumber';
 }
 
+/**
+ * Get possible birth date from BirthNumber
+ * @param elevenDigits BirthNumber
+ */
 function possibleBirthDateOfBirthNumber(
   elevenDigits: string,
 ): Date | undefined {
   return getBirthDate(elevenDigits);
 }
 
+/**
+ * Get possible birth date from HNumber
+ * @param elevenDigits HNumber
+ */
 function possibleBirthDateOfHNumber(elevenDigits: string): Date | undefined {
   const correctedThirdDigit = (parseInt(elevenDigits[2]) - 4).toString();
   return getBirthDate(
@@ -152,11 +204,18 @@ function possibleBirthDateOfHNumber(elevenDigits: string): Date | undefined {
   );
 }
 
+/**
+ * Get possible birth date from DNumber
+ * @param elevenDigits DNumber
+ */
 function possibleBirthDateOfDNumber(elevenDigits: string): Date | undefined {
   const correctedFirstDigit = (parseInt(elevenDigits[0]) - 4).toString();
   return getBirthDate(correctedFirstDigit + elevenDigits.slice(1, 11));
 }
 
+/**
+ * @private
+ */
 function getBirthDate(elevenDigitsWithDDMMYY: string): Date | undefined {
   const DD = elevenDigitsWithDDMMYY.slice(0, 2);
   const MM = elevenDigitsWithDDMMYY.slice(2, 4);
@@ -184,6 +243,9 @@ function getBirthDate(elevenDigitsWithDDMMYY: string): Date | undefined {
   return birthDate;
 }
 
+/**
+ * @private
+ */
 function isValidCheckDigits(elevenDigits: string): boolean {
   const staticSequenceFirstCheckDigit = [3, 7, 6, 1, 8, 9, 4, 5, 2, 1];
   const staticSequenceSecondCheckDigit = [5, 4, 3, 2, 7, 6, 5, 4, 3, 2, 1];
@@ -196,6 +258,9 @@ function isValidCheckDigits(elevenDigits: string): boolean {
   );
 }
 
+/**
+ * @private
+ */
 function isValidCheckDigit(
   staticSequence: number[],
   elevenDigits: number[],
@@ -208,6 +273,10 @@ function isValidCheckDigit(
   return productSum % 11 === 0;
 }
 
+/**
+ * Returns the gender based of id number
+ * @param elevenDigits id number
+ */
 export function getGender(elevenDigits: string): Gender | undefined {
   if (elevenDigits.length != 11) {
     return undefined;

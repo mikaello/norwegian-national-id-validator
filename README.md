@@ -23,7 +23,43 @@ yarn add norwegian-national-id-validator
 
 ## Usage
 
-### validateNorwegianIdNumber(value)
+This package exports a functional and object-oriented API for your convenience.
+
+### Object-oriented API
+
+```js
+import { NorwegianId } from 'norwegian-national-id-validator';
+
+const validation = NorwegianId('29029600013');
+
+if (validation.isValid())
+// => true
+
+if (validation.isBirthNumber())
+// => true
+
+if (validation.isDNumber())
+// => false
+
+if (validation.isHNumber())
+// => false
+
+if (validation.isFhNumber())
+// => false
+
+if (validation.isMale())
+// => false
+
+if (validation.isFemale())
+// => true
+
+if (validation.age())
+// => 24
+```
+
+### Functional API
+
+#### validateNorwegianIdNumber(value)
 
 This function checks if the given value is a valid Norwegian national identity number. Returns `true` for valid, and `false` for invalid ID-number.
 
@@ -39,7 +75,7 @@ validateNorwegianIdNumber('29029600013');
 // => true
 ```
 
-### possibleAgeOfPersonWithIdNumber(value)
+#### possibleAgeOfPersonWithIdNumber(value)
 
 This function returns the age of a person with given Norwegian national identity number.
 
@@ -56,6 +92,13 @@ possibleAgeOfPersonWithIdNumber('03111590925');
 possibleAgeOfPersonWithIdNumber('03110175225');
 // => 15
 ```
+
+## Documentation
+
+Apart from this README, you can find details and examples of using the SDK in the following places:  
+
+- [SDK Documentation](docs/README.md)
+- [Examples](examples/)
 
 ## Tests
 
