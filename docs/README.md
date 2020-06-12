@@ -7,10 +7,7 @@
 ### Enumerations
 
 * [Gender](enums/gender.md)
-
-### Type aliases
-
-* [IDNumberType](README.md#idnumbertype)
+* [IDNumberType](enums/idnumbertype.md)
 
 ### Functions
 
@@ -19,7 +16,7 @@
 * [getBirthDate](README.md#private-getbirthdate)
 * [getGender](README.md#getgender)
 * [idNumberContainsBirthDate](README.md#idnumbercontainsbirthdate)
-* [idNumberType](README.md#private-idnumbertype)
+* [idNumberType](README.md#idnumbertype)
 * [isValidCheckDigit](README.md#private-isvalidcheckdigit)
 * [isValidCheckDigits](README.md#private-isvalidcheckdigits)
 * [isValidDate](README.md#isvaliddate)
@@ -30,12 +27,6 @@
 * [possibleBirthDateOfHNumber](README.md#possiblebirthdateofhnumber)
 * [possibleBirthDateOfIdNumber](README.md#possiblebirthdateofidnumber)
 * [validateNorwegianIdNumber](README.md#validatenorwegianidnumber)
-
-## Type aliases
-
-###  IDNumberType
-
-Ƭ **IDNumberType**: *"birthNumber" | "DNumber" | "HNumber" | "FHNumber"*
 
 ## Functions
 
@@ -143,17 +134,28 @@ Name | Type | Description |
 
 ___
 
-### `Private` idNumberType
+###  idNumberType
 
-▸ **idNumberType**(`elevenDigits`: string): *[IDNumberType](README.md#idnumbertype)*
+▸ **idNumberType**(`elevenDigits`: string): *[IDNumberType](enums/idnumbertype.md)*
+
+Get the ID number kind/type. This function does not validate, so
+it should be combined with [`validateNorwegianIdNumber`](README.md#validatenorwegianidnumber).
+
+**`example`**
+```javascript
+import { idNumberType, validateNorwegianIdNumber } from 'norwegian-national-id-validator';
+if (validateNorwegianIdNumber(0000000000)) {
+  const type = idNumberType(00000000000);
+}
+```
 
 **Parameters:**
 
-Name | Type |
------- | ------ |
-`elevenDigits` | string |
+Name | Type | Description |
+------ | ------ | ------ |
+`elevenDigits` | string | IdNumber  |
 
-**Returns:** *[IDNumberType](README.md#idnumbertype)*
+**Returns:** *[IDNumberType](enums/idnumbertype.md)*
 
 ___
 

@@ -2,6 +2,8 @@
 
 # Enumeration: Gender
 
+Birth numbers, D-number and H-number contains information about gender
+
 ## Index
 
 ### Enumeration members
@@ -15,8 +17,12 @@
 
 • **Female**:
 
+If the third last digit in the ID number is even, it is a female
+
 ___
 
 ###  Male
 
 • **Male**:
+
+If the third last digit in the ID number is odd, it is a male

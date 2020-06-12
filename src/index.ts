@@ -3,7 +3,7 @@
  * @example
  * ```javascript
  * import { NorwegianId } from 'norwegian-national-id-validator';
- * 
+ *
  * const valid = NorwegianId('0000000000');
  * ```
  * @param idNumber norwegian social security number
@@ -21,27 +21,29 @@ export const NorwegianId = (idNumber: string) => {
      * have a residence permit and are going to live in Norway for more than
      * six months.
      */
-    isBirthNumber: () => valid && idNumberType(idNumber) == 'birthNumber',
+    isBirthNumber: () =>
+      valid && idNumberType(idNumber) == IDNumberType.BirthNumber,
 
     /**
      * A D number is a temporary identification number that you get if you have
      * applied for protection (asylum), or if you have a residence permit and
-     * are going to stay in Norway for less than six months. */
-    isDNumber: () => valid && idNumberType(idNumber) == 'DNumber',
+     * are going to stay in Norway for less than six months.
+     */
+    isDNumber: () => valid && idNumberType(idNumber) == IDNumberType.DNumber,
 
     /**
      * A H number is a number used for assistance, a unique identification of a
      * person that does not have a national ID or a D number or in cases where
      * this is not known. A H number contains information about age and gender.
      */
-    isHNumber: () => valid && idNumberType(idNumber) == 'HNumber',
+    isHNumber: () => valid && idNumberType(idNumber) == IDNumberType.HNumber,
 
     /**
      * A FH number is used in health care to uniquely identify patients that
      * does not have a known national ID or D number. A FH number does not have
      * any information about age or gender.
      */
-    isFhNumber: () => valid && idNumberType(idNumber) == 'FHNumber',
+    isFhNumber: () => valid && idNumberType(idNumber) == IDNumberType.FHNumber,
     isMale: () => valid && getGender(idNumber) == Gender.Male,
     isFemale: () => valid && getGender(idNumber) == Gender.Female,
     age: () => possibleAgeOfPersonWithIdNumber(idNumber),
@@ -75,8 +77,8 @@ export function diffYears(startDate: Date, endDate: Date) {
  * Checks if a date is valid against another
  * @param date Date instance
  * @param expectedYear
- * @param expectedMonth 
- * @param expectedDay 
+ * @param expectedMonth
+ * @param expectedDay
  */
 export function isValidDate(
   date: Date,
@@ -91,10 +93,41 @@ export function isValidDate(
   );
 }
 
-type IDNumberType = 'birthNumber' | 'DNumber' | 'HNumber' | 'FHNumber';
+/** In Norway there are several different ID numbers */
+export enum IDNumberType {
+  /**
+   * A national identity number (birth number) is an ID number for you who
+   * have a residence permit and are going to live in Norway for more than
+   * six months.
+   */
+  BirthNumber,
+  /**
+   * A D number is a temporary identification number that you get if you have
+   * applied for protection (asylum), or if you have a residence permit and
+   * are going to stay in Norway for less than six months.
+   */
+  DNumber,
+  /**
+   * A H number is a number used for assistance, a unique identification of a
+   * person that does not have a national ID or a D number or in cases where
+   * this is not known. A H number contains information about age and gender.
+   */
+  HNumber,
+  /**
+   * A FH number is used in health care to uniquely identify patients that
+   * does not have a known national ID or D number. A FH number does not have
+   * any information about age or gender.
+   */
+  FHNumber,
+}
 
+/**
+ * Birth numbers, D-number and H-number contains information about gender
+ */
 export enum Gender {
+  /** If the third last digit in the ID number is odd, it is a male */
   Male,
+  /** If the third last digit in the ID number is even, it is a female */
   Female,
 }
 
@@ -114,7 +147,7 @@ export function validateNorwegianIdNumber(idNumber: string): boolean {
   if (trimmed.length !== 11) return false;
   if (!isValidCheckDigits(trimmed)) return false;
   const type = idNumberType(trimmed);
-  if (type === 'FHNumber') return true;
+  if (type === IDNumberType.FHNumber) return true;
   else return possibleAgesOfPersonWithIdNumber(trimmed).length > 0;
 }
 
@@ -150,7 +183,7 @@ export function possibleAgeOfPersonWithIdNumber(
  * @param elevenDigits idNumber
  */
 export function idNumberContainsBirthDate(elevenDigits: string): boolean {
-  return idNumberType(elevenDigits) !== 'FHNumber';
+  return idNumberType(elevenDigits) !== IDNumberType.FHNumber;
 }
 
 /**
@@ -161,26 +194,35 @@ function possibleBirthDateOfIdNumber(elevenDigits: string): Date | undefined {
   if (elevenDigits.length !== 11) return undefined;
   const type = idNumberType(elevenDigits);
   switch (type) {
-    case 'birthNumber':
+    case IDNumberType.BirthNumber:
       return possibleBirthDateOfBirthNumber(elevenDigits);
-    case 'DNumber':
+    case IDNumberType.DNumber:
       return possibleBirthDateOfDNumber(elevenDigits);
-    case 'HNumber':
+    case IDNumberType.HNumber:
       return possibleBirthDateOfHNumber(elevenDigits);
   }
   return undefined;
 }
 
 /**
- * @private
+ * Get the ID number kind/type. This function does not validate, so
+ * it should be combined with {@linkcode validateNorwegianIdNumber}.
+ * @example
+ * ```javascript
+ * import { idNumberType, validateNorwegianIdNumber } from 'norwegian-national-id-validator';
+ * if (validateNorwegianIdNumber(0000000000)) {
+ *   const type = idNumberType(00000000000);
+ * }
+ * ```
+ * @param elevenDigits IdNumber
  */
 function idNumberType(elevenDigits: string): IDNumberType {
   const firstDigit = parseInt(elevenDigits[0]);
-  if (firstDigit === 8 || firstDigit === 9) return 'FHNumber';
-  if (firstDigit >= 4 && firstDigit <= 7) return 'DNumber';
+  if (firstDigit === 8 || firstDigit === 9) return IDNumberType.FHNumber;
+  if (firstDigit >= 4 && firstDigit <= 7) return IDNumberType.DNumber;
   const thirdDigit = parseInt(elevenDigits[2]);
-  if (thirdDigit === 4 || thirdDigit === 5) return 'HNumber';
-  else return 'birthNumber';
+  if (thirdDigit === 4 || thirdDigit === 5) return IDNumberType.HNumber;
+  else return IDNumberType.BirthNumber;
 }
 
 /**
@@ -280,7 +322,7 @@ function isValidCheckDigit(
 export function getGender(elevenDigits: string): Gender | undefined {
   if (elevenDigits.length != 11) {
     return undefined;
-  } else if (idNumberType(elevenDigits) == 'FHNumber') {
+  } else if (idNumberType(elevenDigits) == IDNumberType.FHNumber) {
     return undefined;
   }
 
