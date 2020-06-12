@@ -28,16 +28,16 @@
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
-    "@types/jest": "^25.1.4",
+    "@types/jest": "^26.0.0",
     "@types/mockdate": "^2.0.0",
     "@types/node": "^13.9.1",
-    "jest": "^25.1.0",
+    "jest": "^26.0.1",
     "mockdate": "^2.0.5",
     "timezone-mock": "^1.0.18",
-    "ts-jest": "^25.2.1",
-    "typescript": "^3.8.3",
+    "ts-jest": "^26.1.0",
     "typedoc": "^0.17.3",
-    "typedoc-plugin-markdown": "^2.2.16"
+    "typedoc-plugin-markdown": "^2.2.16",
+    "typescript": "^3.8.3"
   },
   "prettier": {
     "trailingComma": "all",
