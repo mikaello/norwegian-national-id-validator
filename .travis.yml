@@ -1,4 +1,20 @@
+
 language: node_js
 node_js: node
 
 cache: yarn
+
+script:
+  - yarn test
+
+deploy:
+  - provider: script # Generate HTML for GitHub pages
+    script: yarn generate-html-docs
+    edge: true
+  - provider: pages:git # Deploy GitHub pages
+    token: $GITHUB_API_TOKEN
+    edge: true # opt in to dpl v2
+    local_dir: html
+    run:
+      - ls -ltur
+    verbose: true

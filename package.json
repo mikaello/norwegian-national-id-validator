@@ -6,6 +6,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "generate-docs": "typedoc --mode file --readme none --plugin typedoc-plugin-markdown --hideSources --out docs src",
+    "generate-html-docs": "typedoc --mode file --readme none --plugin none --out html src",
     "prepare": "npm run build && cp export.flow.js dist/index.flow.js",
     "build": "tsc",
     "start": "tsc --watch",
