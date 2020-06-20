@@ -139,7 +139,7 @@ export enum Gender {
  * const valid = validateNorwegianIdNumber(0000000000);
  * ```
  * @param idNumber social security number
- * @returns `true` for valid, and `false` for invalid ID-number.
+ * @returns `true` for valid, and `false` for invalid IDn umber.
  */
 export function validateNorwegianIdNumber(idNumber: string): boolean {
   const trimmed = idNumber.trim();
@@ -152,7 +152,7 @@ export function validateNorwegianIdNumber(idNumber: string): boolean {
 }
 
 /**
- * Find possible age of person based of IDNumber
+ * Find possible age of person based of ID number
  * @param elevenDigits Identification number
  */
 export function possibleAgesOfPersonWithIdNumber(
@@ -187,7 +187,7 @@ export function idNumberContainsBirthDate(elevenDigits: string): boolean {
 }
 
 /**
- * Get possible birth date from IdNumber
+ * Get possible birth date from ID number
  * @param elevenDigits IdNumber
  */
 function possibleBirthDateOfIdNumber(elevenDigits: string): Date | undefined {
@@ -316,8 +316,9 @@ function isValidCheckDigit(
 }
 
 /**
- * Returns the gender based of id number
- * @param elevenDigits id number
+ * Returns the gender based of ID number. Returns `undefined` when no gender
+ * information is available.
+ * @param elevenDigits ID number
  */
 export function getGender(elevenDigits: string): Gender | undefined {
   if (elevenDigits.length != 11) {
