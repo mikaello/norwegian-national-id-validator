@@ -139,7 +139,7 @@ export enum Gender {
  * const valid = validateNorwegianIdNumber(0000000000);
  * ```
  * @param idNumber social security number
- * @returns `true` for valid, and `false` for invalid IDn umber.
+ * @returns `true` for valid, and `false` for invalid ID number.
  */
 export function validateNorwegianIdNumber(idNumber: string): boolean {
   const trimmed = idNumber.trim();
