@@ -288,7 +288,7 @@ function getBirthDate(elevenDigitsWithDDMMYY: string): Date | undefined {
 /**
  * @private
  */
-function isValidCheckDigits(elevenDigits: string): boolean {
+export function isValidCheckDigits(elevenDigits: string): boolean {
   const staticSequenceFirstCheckDigit = [3, 7, 6, 1, 8, 9, 4, 5, 2, 1];
   const staticSequenceSecondCheckDigit = [5, 4, 3, 2, 7, 6, 5, 4, 3, 2, 1];
 
