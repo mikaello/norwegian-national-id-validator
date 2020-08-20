@@ -232,7 +232,7 @@ function idNumberType(elevenDigits: string): IDNumberType {
 function possibleBirthDateOfBirthNumber(
   elevenDigits: string,
 ): Date | undefined {
-  return getBirthDate(elevenDigits);
+  return getBirthDate(elevenDigits, IDNumberType.BirthNumber);
 }
 
 /**
@@ -243,6 +243,7 @@ function possibleBirthDateOfHNumber(elevenDigits: string): Date | undefined {
   const correctedThirdDigit = (parseInt(elevenDigits[2]) - 4).toString();
   return getBirthDate(
     elevenDigits.slice(0, 2) + correctedThirdDigit + elevenDigits.slice(3, 11),
+    IDNumberType.HNumber,
   );
 }
 
@@ -252,13 +253,19 @@ function possibleBirthDateOfHNumber(elevenDigits: string): Date | undefined {
  */
 function possibleBirthDateOfDNumber(elevenDigits: string): Date | undefined {
   const correctedFirstDigit = (parseInt(elevenDigits[0]) - 4).toString();
-  return getBirthDate(correctedFirstDigit + elevenDigits.slice(1, 11));
+  return getBirthDate(
+    correctedFirstDigit + elevenDigits.slice(1, 11),
+    IDNumberType.DNumber,
+  );
 }
 
 /**
  * @private
  */
-function getBirthDate(elevenDigitsWithDDMMYY: string): Date | undefined {
+function getBirthDate(
+  elevenDigitsWithDDMMYY: string,
+  idNumberType: IDNumberType,
+): Date | undefined {
   const DD = elevenDigitsWithDDMMYY.slice(0, 2);
   const MM = elevenDigitsWithDDMMYY.slice(2, 4);
   const YY = elevenDigitsWithDDMMYY.slice(4, 6);
@@ -268,6 +275,8 @@ function getBirthDate(elevenDigitsWithDDMMYY: string): Date | undefined {
   let centuryPrefix = '20';
   if (ageGroupNumber >= 0 && ageGroupNumber < 500) {
     centuryPrefix = '19';
+  } else if (idNumberType === IDNumberType.DNumber) {
+    centuryPrefix = '20';
   } else if (ageGroupNumber >= 500 && ageGroupNumber < 750 && YY_int >= 54) {
     centuryPrefix = '18';
   } else if (ageGroupNumber >= 900 && ageGroupNumber < 1000 && YY_int >= 40) {

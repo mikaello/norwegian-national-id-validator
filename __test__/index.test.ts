@@ -1,4 +1,4 @@
-import { set, reset } from 'mockdate';
+import { set as setDate, reset as resetDate } from 'mockdate';
 import { register, unregister } from 'timezone-mock';
 
 import { validNumbers } from './listOfPersonalIdNumbers';
@@ -51,9 +51,18 @@ describe('Norwegian ID number validation', () => {
     }
   });
 
-  it('does not accept D numbers from future (born 2063)', () => {
+  it('does not accept D numbers from future', () => {
+    // born in 2063
     expect(isValidCheckDigits('71106177273')).toBeTruthy();
     expect(NorwegianId('71106177273').isDNumber()).toBeFalsy();
+
+    // born in 2097
+    expect(isValidCheckDigits('71019762194')).toBeTruthy();
+    expect(NorwegianId('71019762194').isDNumber()).toBeFalsy();
+
+    // born in 2097
+    expect(isValidCheckDigits('71019799918')).toBeTruthy();
+    expect(NorwegianId('71019799918').isDNumber()).toBeFalsy();
   });
 
   it('does not accept non D numbers when checking for D number', () => {
@@ -79,10 +88,15 @@ describe('Norwegian ID number validation', () => {
 
 describe('A Norwegian person number (last 5 digits of ID number)', () => {
   beforeEach(() => {
-    set('06/18/2017');
+    setDate('06/18/2017');
   });
   afterEach(() => {
-    reset();
+    resetDate();
+  });
+
+  it('D numbers belongs to persons in the 2000s if the individual numbers are in the [500, 1000) range', () => {
+    expect(possibleAgeOfPersonWithIdNumber('71010073132')).toBe(17);
+    expect(possibleAgeOfPersonWithIdNumber('50101099943')).toBe(6);
   });
 
   it('belongs to a person born in the 1900s if the three first digits are in the [0, 500) range', () => {
