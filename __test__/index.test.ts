@@ -9,6 +9,8 @@ import {
   isValidDate,
   getGender,
   Gender,
+  NorwegianId,
+  isValidCheckDigits,
 } from '../src/index';
 
 describe('Norwegian ID number validation', () => {
@@ -45,8 +47,21 @@ describe('Norwegian ID number validation', () => {
 
   it('works with D numbers', () => {
     for (const number of validNumbers.DNumbers) {
-      expect(validateNorwegianIdNumber(number)).toBeTruthy();
+      expect(NorwegianId(number).isDNumber()).toBeTruthy();
     }
+  });
+
+  it('does not accept D numbers from future (born 2063)', () => {
+    expect(isValidCheckDigits('71106177273')).toBeTruthy();
+    expect(NorwegianId('71106177273').isDNumber()).toBeFalsy();
+  });
+
+  it('does not accept non D numbers when checking for D number', () => {
+    expect(NorwegianId('03111590981').isValid()).toBeTruthy();
+    expect(NorwegianId('03111590981').isDNumber()).toBeFalsy();
+
+    expect(NorwegianId('03115690905').isValid()).toBeTruthy();
+    expect(NorwegianId('03115690905').isDNumber()).toBeFalsy();
   });
 
   it('works with FH numbers', () => {
@@ -56,6 +71,8 @@ describe('Norwegian ID number validation', () => {
 
   it('works with H numbers', () => {
     expect(validateNorwegianIdNumber('01415612385')).toBeTruthy();
+
+    expect(isValidCheckDigits('01535612303')).toBeTruthy();
     expect(validateNorwegianIdNumber('01535612303')).toBeFalsy();
   });
 });
