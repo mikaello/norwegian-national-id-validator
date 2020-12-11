@@ -84,6 +84,15 @@ describe('Norwegian ID number validation', () => {
     expect(isValidCheckDigits('01535612303')).toBeTruthy();
     expect(validateNorwegianIdNumber('01535612303')).toBeFalsy();
   });
+
+  it('works with birth numbers from the Norsk Helsenett Testaktoerer', () => {
+    for (const number of validNumbers.NorskHelsenettTestaktoerer) {
+      expect(validateNorwegianIdNumber(number)).toBeTruthy();
+    }
+
+    // Testpasient 6 - D-number is invalid
+    expect(validateNorwegianIdNumber('70019950032')).toBeFalsy();
+  });
 });
 
 describe('A Norwegian person number (last 5 digits of ID number)', () => {
