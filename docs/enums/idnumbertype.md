@@ -8,16 +8,16 @@ In Norway there are several different ID numbers
 
 ### Enumeration members
 
-- [BirthNumber](idnumbertype.md#birthnumber)
-- [DNumber](idnumbertype.md#dnumber)
-- [FHNumber](idnumbertype.md#fhnumber)
-- [HNumber](idnumbertype.md#hnumber)
+- [BirthNumber](IDNumberType.md#birthnumber)
+- [DNumber](IDNumberType.md#dnumber)
+- [FHNumber](IDNumberType.md#fhnumber)
+- [HNumber](IDNumberType.md#hnumber)
 
 ## Enumeration members
 
 ### BirthNumber
 
-• **BirthNumber** = 0
+• **BirthNumber** = `0`
 
 A national identity number (birth number) is an ID number for you who
 have a residence permit and are going to live in Norway for more than
@@ -27,7 +27,7 @@ ___
 
 ### DNumber
 
-• **DNumber** = 1
+• **DNumber** = `1`
 
 A D number is a temporary identification number that you get if you have
 applied for protection (asylum), or if you have a residence permit and
@@ -37,7 +37,7 @@ ___
 
 ### FHNumber
 
-• **FHNumber** = 3
+• **FHNumber** = `3`
 
 A FH number is used in health care to uniquely identify patients that
 does not have a known national ID or D number. A FH number does not have
@@ -47,7 +47,7 @@ ___
 
 ### HNumber
 
-• **HNumber** = 2
+• **HNumber** = `2`
 
 A H number is a number used for assistance, a unique identification of a
 person that does not have a national ID or a D number or in cases where

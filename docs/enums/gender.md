@@ -8,14 +8,14 @@ Birth numbers, D-number and H-number contains information about gender
 
 ### Enumeration members
 
-- [Female](gender.md#female)
-- [Male](gender.md#male)
+- [Female](Gender.md#female)
+- [Male](Gender.md#male)
 
 ## Enumeration members
 
 ### Female
 
-• **Female** = 1
+• **Female** = `1`
 
 If the third last digit in the ID number is even, it is a female
 
@@ -23,6 +23,6 @@ ___
 
 ### Male
 
-• **Male** = 0
+• **Male** = `0`
 
 If the third last digit in the ID number is odd, it is a male

@@ -6,8 +6,8 @@ norwegian-national-id-validator
 
 ### Enumerations
 
-- [Gender](enums/gender.md)
-- [IDNumberType](enums/idnumbertype.md)
+- [Gender](enums/Gender.md)
+- [IDNumberType](enums/IDNumberType.md)
 
 ### Functions
 
@@ -81,7 +81,7 @@ ___
 
 ### getGender
 
-▸ **getGender**(`elevenDigits`): [Gender](enums/gender.md) \| `undefined`
+▸ **getGender**(`elevenDigits`): [`Gender`](enums/Gender.md) \| `undefined`
 
 Returns the gender based of ID number. Returns `undefined` when no gender
 information is available.
@@ -94,7 +94,7 @@ information is available.
 
 #### Returns
 
-[Gender](enums/gender.md) \| `undefined`
+[`Gender`](enums/Gender.md) \| `undefined`
 
 ___
 
