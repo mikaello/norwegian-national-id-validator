@@ -5,8 +5,8 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "generate-docs": "typedoc --mode file --readme none --plugin typedoc-plugin-markdown --hideSources --out docs src",
-    "generate-html-docs": "typedoc --mode file --readme none --plugin none --out html src",
+    "generate-docs": "typedoc --readme none --plugin typedoc-plugin-markdown --disableSources --excludePrivate false --out docs src",
+    "generate-html-docs": "typedoc --readme none --plugin none --out html src",
     "prepare": "npm run build && cp export.flow.js dist/index.flow.js",
     "build": "tsc",
     "start": "tsc --watch",
@@ -36,8 +36,8 @@
     "mockdate": "^2.0.5",
     "timezone-mock": "^1.0.18",
     "ts-jest": "^26.1.0",
-    "typedoc": "^0.17.3",
-    "typedoc-plugin-markdown": "^2.2.16",
+    "typedoc": "^0.20.36",
+    "typedoc-plugin-markdown": "^3.9.0",
     "typescript": "^3.8.3"
   },
   "prettier": {

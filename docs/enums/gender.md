@@ -1,28 +1,28 @@
-[norwegian-national-id-validator](../README.md) › [Gender](gender.md)
+[norwegian-national-id-validator](../README.md) / Gender
 
 # Enumeration: Gender
 
 Birth numbers, D-number and H-number contains information about gender
 
-## Index
+## Table of contents
 
 ### Enumeration members
 
-* [Female](gender.md#female)
-* [Male](gender.md#male)
+- [Female](gender.md#female)
+- [Male](gender.md#male)
 
 ## Enumeration members
 
-###  Female
+### Female
 
-• **Female**:
+• **Female** = 1
 
 If the third last digit in the ID number is even, it is a female
 
 ___
 
-###  Male
+### Male
 
-• **Male**:
+• **Male** = 0
 
 If the third last digit in the ID number is odd, it is a male
