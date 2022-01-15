@@ -7,6 +7,7 @@
 	<meta name="description" content="Documentation for norwegian-national-id-validator">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="assets/css/main.css">
+	<script async src="assets/js/search.js" id="search-script"></script>
 </head>
 <body>
 <header>
@@ -40,8 +41,6 @@
 							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
 							<input type="checkbox" id="tsd-filter-externals" checked />
 							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
-							<input type="checkbox" id="tsd-filter-only-exported" />
-							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
 						</div>
 					</div>
 					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
@@ -51,11 +50,6 @@
 	</div>
 	<div class="tsd-page-title">
 		<div class="container">
-			<ul class="tsd-breadcrumb">
-				<li>
-					<a href="index.html">Globals</a>
-				</li>
-			</ul>
 			<h1>norwegian-national-id-validator</h1>
 		</div>
 	</div>
@@ -79,19 +73,12 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function"><a href="index.html#norwegianid" class="tsd-kind-icon">Norwegian<wbr>Id</a></li>
 								<li class="tsd-kind-function tsd-is-private"><a href="index.html#diffyears" class="tsd-kind-icon">diff<wbr>Years</a></li>
-								<li class="tsd-kind-function tsd-is-private"><a href="index.html#getbirthdate" class="tsd-kind-icon">get<wbr>Birth<wbr>Date</a></li>
 								<li class="tsd-kind-function"><a href="index.html#getgender" class="tsd-kind-icon">get<wbr>Gender</a></li>
 								<li class="tsd-kind-function"><a href="index.html#idnumbercontainsbirthdate" class="tsd-kind-icon">id<wbr>Number<wbr>Contains<wbr>Birth<wbr>Date</a></li>
-								<li class="tsd-kind-function"><a href="index.html#idnumbertype" class="tsd-kind-icon">id<wbr>Number<wbr>Type</a></li>
-								<li class="tsd-kind-function tsd-is-private"><a href="index.html#isvalidcheckdigit" class="tsd-kind-icon">is<wbr>Valid<wbr>Check<wbr>Digit</a></li>
 								<li class="tsd-kind-function tsd-is-private"><a href="index.html#isvalidcheckdigits" class="tsd-kind-icon">is<wbr>Valid<wbr>Check<wbr>Digits</a></li>
 								<li class="tsd-kind-function"><a href="index.html#isvaliddate" class="tsd-kind-icon">is<wbr>Valid<wbr>Date</a></li>
 								<li class="tsd-kind-function"><a href="index.html#possibleageofpersonwithidnumber" class="tsd-kind-icon">possible<wbr>Age<wbr>OfPerson<wbr>With<wbr>IdNumber</a></li>
 								<li class="tsd-kind-function"><a href="index.html#possibleagesofpersonwithidnumber" class="tsd-kind-icon">possible<wbr>Ages<wbr>OfPerson<wbr>With<wbr>IdNumber</a></li>
-								<li class="tsd-kind-function"><a href="index.html#possiblebirthdateofbirthnumber" class="tsd-kind-icon">possible<wbr>Birth<wbr>Date<wbr>OfBirth<wbr>Number</a></li>
-								<li class="tsd-kind-function"><a href="index.html#possiblebirthdateofdnumber" class="tsd-kind-icon">possible<wbr>Birth<wbr>Date<wbr>OfDNumber</a></li>
-								<li class="tsd-kind-function"><a href="index.html#possiblebirthdateofhnumber" class="tsd-kind-icon">possible<wbr>Birth<wbr>Date<wbr>OfHNumber</a></li>
-								<li class="tsd-kind-function"><a href="index.html#possiblebirthdateofidnumber" class="tsd-kind-icon">possible<wbr>Birth<wbr>Date<wbr>OfId<wbr>Number</a></li>
 								<li class="tsd-kind-function"><a href="index.html#validatenorwegianidnumber" class="tsd-kind-icon">validate<wbr>Norwegian<wbr>IdNumber</a></li>
 							</ul>
 						</section>
@@ -104,13 +91,13 @@
 					<a name="norwegianid" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> Norwegian<wbr>Id</h3>
 					<ul class="tsd-signatures tsd-kind-function">
-						<li class="tsd-signature tsd-kind-icon">Norwegian<wbr>Id<span class="tsd-signature-symbol">(</span>idNumber<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>idNumber<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>age<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>isBirthNumber<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>isDNumber<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>isFemale<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>isFhNumber<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>isHNumber<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>isMale<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>isValid<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span></li>
+						<li class="tsd-signature tsd-kind-icon">Norwegian<wbr>Id<span class="tsd-signature-symbol">(</span>idNumber<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>age<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span>idNumber<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>isBirthNumber<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span>isDNumber<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span>isFemale<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span>isFhNumber<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span>isHNumber<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span>isMale<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span>isValid<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> }</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/mikaello/norwegian-national-id-validator/blob/1ed3609/src/index.ts#L11">index.ts:11</a></li>
+									<li>Defined in <a href="https://github.com/mikaello/norwegian-national-id-validator/blob/6bddb64/src/index.ts#L11">index.ts:11</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -119,9 +106,10 @@
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><pre><code class="language-javascript"><span class="hljs-keyword">import</span> { NorwegianId } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;norwegian-national-id-validator&#x27;</span>;
+									<dd><pre><code class="language-javascript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">NorwegianId</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;norwegian-national-id-validator&#039;</span><span style="color: #000000">;</span>
 
-<span class="hljs-keyword">const</span> valid = NorwegianId(<span class="hljs-string">&#x27;0000000000&#x27;</span>);</code></pre>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">valid</span><span style="color: #000000"> = </span><span style="color: #795E26">NorwegianId</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;0000000000&#039;</span><span style="color: #000000">);</span>
+</code></pre>
 									</dd>
 								</dl>
 							</div>
@@ -130,175 +118,160 @@
 								<li>
 									<h5>idNumber: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<div class="lead">
-											<p>norwegian social security number</p>
-										</div>
+										<p>norwegian social security number</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">{ </span>idNumber<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>age<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>isBirthNumber<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>isDNumber<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>isFemale<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>isFhNumber<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>isHNumber<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>isMale<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>isValid<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">{ </span>age<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span>idNumber<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>isBirthNumber<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span>isDNumber<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span>isFemale<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span>isFhNumber<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span>isHNumber<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span>isMale<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span>isValid<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> }</span></h4>
 							<ul class="tsd-parameters">
 								<li class="tsd-parameter">
+									<h5>age<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-signature">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-literal">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+								<li class="tsd-parameter">
 									<h5>id<wbr>Number<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<div class="lead">
-											<p>The ID this object was created with</p>
-										</div>
-									</div>
 								</li>
 								<li class="tsd-parameter">
-									<h5>age<span class="tsd-signature-symbol">: </span>function</h5>
-									<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-type-literal">
-										<li class="tsd-signature tsd-kind-icon">age<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></li>
-									</ul>
-									<ul class="tsd-descriptions">
-										<li class="tsd-description">
-											<aside class="tsd-sources">
-												<ul>
-													<li>Defined in <a href="https://github.com/mikaello/norwegian-national-id-validator/blob/1ed3609/src/index.ts#L49">index.ts:49</a></li>
-												</ul>
-											</aside>
-											<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h4>
+									<h5>is<wbr>Birth<wbr>Number<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">boolean</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-signature">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-literal">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<div class="tsd-comment tsd-typography">
+														<div class="lead">
+															<p>A national identity number (birth number) is an ID number for you who
+																have a residence permit and are going to live in Norway for more than
+															six months.</p>
+														</div>
+													</div>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+												</li>
+											</ul>
 										</li>
 									</ul>
 								</li>
 								<li class="tsd-parameter">
-									<h5>is<wbr>Birth<wbr>Number<span class="tsd-signature-symbol">: </span>function</h5>
-									<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-type-literal">
-										<li class="tsd-signature tsd-kind-icon">is<wbr>Birth<wbr>Number<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
-									</ul>
-									<ul class="tsd-descriptions">
-										<li class="tsd-description">
-											<aside class="tsd-sources">
-												<ul>
-													<li>Defined in <a href="https://github.com/mikaello/norwegian-national-id-validator/blob/1ed3609/src/index.ts#L24">index.ts:24</a></li>
-												</ul>
-											</aside>
-											<div class="tsd-comment tsd-typography">
-												<div class="lead">
-													<p>A national identity number (birth number) is an ID number for you who
-														have a residence permit and are going to live in Norway for more than
-													six months.</p>
-												</div>
-											</div>
-											<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+									<h5>isDNumber<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">boolean</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-signature">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-literal">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<div class="tsd-comment tsd-typography">
+														<div class="lead">
+															<p>A D number is a temporary identification number that you get if you have
+																applied for protection (asylum), or if you have a residence permit and
+															are going to stay in Norway for less than six months.</p>
+														</div>
+													</div>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+												</li>
+											</ul>
 										</li>
 									</ul>
 								</li>
 								<li class="tsd-parameter">
-									<h5>isDNumber<span class="tsd-signature-symbol">: </span>function</h5>
-									<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-type-literal">
-										<li class="tsd-signature tsd-kind-icon">isDNumber<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
-									</ul>
-									<ul class="tsd-descriptions">
-										<li class="tsd-description">
-											<aside class="tsd-sources">
-												<ul>
-													<li>Defined in <a href="https://github.com/mikaello/norwegian-national-id-validator/blob/1ed3609/src/index.ts#L32">index.ts:32</a></li>
-												</ul>
-											</aside>
-											<div class="tsd-comment tsd-typography">
-												<div class="lead">
-													<p>A D number is a temporary identification number that you get if you have
-														applied for protection (asylum), or if you have a residence permit and
-													are going to stay in Norway for less than six months.</p>
-												</div>
-											</div>
-											<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+									<h5>is<wbr>Female<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">boolean</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-signature">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-literal">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+												</li>
+											</ul>
 										</li>
 									</ul>
 								</li>
 								<li class="tsd-parameter">
-									<h5>is<wbr>Female<span class="tsd-signature-symbol">: </span>function</h5>
-									<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-type-literal">
-										<li class="tsd-signature tsd-kind-icon">is<wbr>Female<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
-									</ul>
-									<ul class="tsd-descriptions">
-										<li class="tsd-description">
-											<aside class="tsd-sources">
-												<ul>
-													<li>Defined in <a href="https://github.com/mikaello/norwegian-national-id-validator/blob/1ed3609/src/index.ts#L48">index.ts:48</a></li>
-												</ul>
-											</aside>
-											<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+									<h5>is<wbr>FhNumber<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">boolean</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-signature">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-literal">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<div class="tsd-comment tsd-typography">
+														<div class="lead">
+															<p>A FH number is used in health care to uniquely identify patients that
+																does not have a known national ID or D number. A FH number does not have
+															any information about age or gender.</p>
+														</div>
+													</div>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+												</li>
+											</ul>
 										</li>
 									</ul>
 								</li>
 								<li class="tsd-parameter">
-									<h5>is<wbr>FhNumber<span class="tsd-signature-symbol">: </span>function</h5>
-									<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-type-literal">
-										<li class="tsd-signature tsd-kind-icon">is<wbr>FhNumber<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
-									</ul>
-									<ul class="tsd-descriptions">
-										<li class="tsd-description">
-											<aside class="tsd-sources">
-												<ul>
-													<li>Defined in <a href="https://github.com/mikaello/norwegian-national-id-validator/blob/1ed3609/src/index.ts#L46">index.ts:46</a></li>
-												</ul>
-											</aside>
-											<div class="tsd-comment tsd-typography">
-												<div class="lead">
-													<p>A FH number is used in health care to uniquely identify patients that
-														does not have a known national ID or D number. A FH number does not have
-													any information about age or gender.</p>
-												</div>
-											</div>
-											<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+									<h5>isHNumber<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">boolean</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-signature">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-literal">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<div class="tsd-comment tsd-typography">
+														<div class="lead">
+															<p>A H number is a number used for assistance, a unique identification of a
+																person that does not have a national ID or a D number or in cases where
+															this is not known. A H number contains information about age and gender.</p>
+														</div>
+													</div>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+												</li>
+											</ul>
 										</li>
 									</ul>
 								</li>
 								<li class="tsd-parameter">
-									<h5>isHNumber<span class="tsd-signature-symbol">: </span>function</h5>
-									<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-type-literal">
-										<li class="tsd-signature tsd-kind-icon">isHNumber<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
-									</ul>
-									<ul class="tsd-descriptions">
-										<li class="tsd-description">
-											<aside class="tsd-sources">
-												<ul>
-													<li>Defined in <a href="https://github.com/mikaello/norwegian-national-id-validator/blob/1ed3609/src/index.ts#L39">index.ts:39</a></li>
-												</ul>
-											</aside>
-											<div class="tsd-comment tsd-typography">
-												<div class="lead">
-													<p>A H number is a number used for assistance, a unique identification of a
-														person that does not have a national ID or a D number or in cases where
-													this is not known. A H number contains information about age and gender.</p>
-												</div>
-											</div>
-											<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+									<h5>is<wbr>Male<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">boolean</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-signature">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-literal">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+												</li>
+											</ul>
 										</li>
 									</ul>
 								</li>
 								<li class="tsd-parameter">
-									<h5>is<wbr>Male<span class="tsd-signature-symbol">: </span>function</h5>
-									<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-type-literal">
-										<li class="tsd-signature tsd-kind-icon">is<wbr>Male<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
-									</ul>
-									<ul class="tsd-descriptions">
-										<li class="tsd-description">
-											<aside class="tsd-sources">
-												<ul>
-													<li>Defined in <a href="https://github.com/mikaello/norwegian-national-id-validator/blob/1ed3609/src/index.ts#L47">index.ts:47</a></li>
-												</ul>
-											</aside>
-											<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-										</li>
-									</ul>
-								</li>
-								<li class="tsd-parameter">
-									<h5>is<wbr>Valid<span class="tsd-signature-symbol">: </span>function</h5>
-									<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-type-literal">
-										<li class="tsd-signature tsd-kind-icon">is<wbr>Valid<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
-									</ul>
-									<ul class="tsd-descriptions">
-										<li class="tsd-description">
-											<aside class="tsd-sources">
-												<ul>
-													<li>Defined in <a href="https://github.com/mikaello/norwegian-national-id-validator/blob/1ed3609/src/index.ts#L17">index.ts:17</a></li>
-												</ul>
-											</aside>
-											<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+									<h5>is<wbr>Valid<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">boolean</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-signature">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-literal">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+												</li>
+											</ul>
 										</li>
 									</ul>
 								</li>
@@ -316,7 +289,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/mikaello/norwegian-national-id-validator/blob/1ed3609/src/index.ts#L59">index.ts:59</a></li>
+									<li>Defined in <a href="https://github.com/mikaello/norwegian-national-id-validator/blob/6bddb64/src/index.ts#L59">index.ts:59</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -343,45 +316,17 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-is-private">
-					<a name="getbirthdate" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> get<wbr>Birth<wbr>Date</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Birth<wbr>Date<span class="tsd-signature-symbol">(</span>elevenDigitsWithDDMMYY<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, idNumberType<span class="tsd-signature-symbol">: </span><a href="enums/idnumbertype.html" class="tsd-signature-type">IDNumberType</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Date</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/mikaello/norwegian-national-id-validator/blob/1ed3609/src/index.ts#L265">index.ts:265</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>elevenDigitsWithDDMMYY: <span class="tsd-signature-type">string</span></h5>
-								</li>
-								<li>
-									<h5>idNumberType: <a href="enums/idnumbertype.html" class="tsd-signature-type">IDNumberType</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Date</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h4>
-						</li>
-					</ul>
-				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function">
 					<a name="getgender" class="tsd-anchor"></a>
 					<h3>get<wbr>Gender</h3>
 					<ul class="tsd-signatures tsd-kind-function">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Gender<span class="tsd-signature-symbol">(</span>elevenDigits<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="enums/gender.html" class="tsd-signature-type">Gender</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Gender<span class="tsd-signature-symbol">(</span>elevenDigits<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="enums/gender.html" class="tsd-signature-type" data-tsd-kind="Enumeration">Gender</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/mikaello/norwegian-national-id-validator/blob/1ed3609/src/index.ts#L332">index.ts:332</a></li>
+									<li>Defined in <a href="https://github.com/mikaello/norwegian-national-id-validator/blob/6bddb64/src/index.ts#L332">index.ts:332</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -399,7 +344,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="enums/gender.html" class="tsd-signature-type">Gender</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="enums/gender.html" class="tsd-signature-type" data-tsd-kind="Enumeration">Gender</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -413,7 +358,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/mikaello/norwegian-national-id-validator/blob/1ed3609/src/index.ts#L185">index.ts:185</a></li>
+									<li>Defined in <a href="https://github.com/mikaello/norwegian-national-id-validator/blob/6bddb64/src/index.ts#L185">index.ts:185</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -434,74 +379,6 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function">
-					<a name="idnumbertype" class="tsd-anchor"></a>
-					<h3>id<wbr>Number<wbr>Type</h3>
-					<ul class="tsd-signatures tsd-kind-function">
-						<li class="tsd-signature tsd-kind-icon">id<wbr>Number<wbr>Type<span class="tsd-signature-symbol">(</span>elevenDigits<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="enums/idnumbertype.html" class="tsd-signature-type">IDNumberType</a></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/mikaello/norwegian-national-id-validator/blob/1ed3609/src/index.ts#L219">index.ts:219</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Get the ID number kind/type. This function does not validate, so
-									it should be combined with <a href="index.html#validatenorwegianidnumber"><code>validateNorwegianIdNumber</code></a>.</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>example</dt>
-									<dd><pre><code class="language-javascript"><span class="hljs-keyword">import</span> { idNumberType, validateNorwegianIdNumber } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;norwegian-national-id-validator&#x27;</span>;
-<span class="hljs-keyword">if</span> (validateNorwegianIdNumber(<span class="hljs-number">0000000000</span>)) {
-  <span class="hljs-keyword">const</span> type = idNumberType(<span class="hljs-number">00000000000</span>);
-}</code></pre>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>elevenDigits: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>IdNumber</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="enums/idnumbertype.html" class="tsd-signature-type">IDNumberType</a></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-is-private">
-					<a name="isvalidcheckdigit" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> is<wbr>Valid<wbr>Check<wbr>Digit</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">is<wbr>Valid<wbr>Check<wbr>Digit<span class="tsd-signature-symbol">(</span>staticSequence<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span>, elevenDigits<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/mikaello/norwegian-national-id-validator/blob/1ed3609/src/index.ts#L315">index.ts:315</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>staticSequence: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
-								</li>
-								<li>
-									<h5>elevenDigits: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-						</li>
-					</ul>
-				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-is-private">
 					<a name="isvalidcheckdigits" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> is<wbr>Valid<wbr>Check<wbr>Digits</h3>
@@ -512,11 +389,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/mikaello/norwegian-national-id-validator/blob/1ed3609/src/index.ts#L300">index.ts:300</a></li>
+									<li>Defined in <a href="https://github.com/mikaello/norwegian-national-id-validator/blob/6bddb64/src/index.ts#L300">index.ts:300</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -537,7 +412,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/mikaello/norwegian-national-id-validator/blob/1ed3609/src/index.ts#L83">index.ts:83</a></li>
+									<li>Defined in <a href="https://github.com/mikaello/norwegian-national-id-validator/blob/6bddb64/src/index.ts#L83">index.ts:83</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -579,7 +454,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/mikaello/norwegian-national-id-validator/blob/1ed3609/src/index.ts#L170">index.ts:170</a></li>
+									<li>Defined in <a href="https://github.com/mikaello/norwegian-national-id-validator/blob/6bddb64/src/index.ts#L170">index.ts:170</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -611,7 +486,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/mikaello/norwegian-national-id-validator/blob/1ed3609/src/index.ts#L158">index.ts:158</a></li>
+									<li>Defined in <a href="https://github.com/mikaello/norwegian-national-id-validator/blob/6bddb64/src/index.ts#L158">index.ts:158</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -633,130 +508,6 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function">
-					<a name="possiblebirthdateofbirthnumber" class="tsd-anchor"></a>
-					<h3>possible<wbr>Birth<wbr>Date<wbr>OfBirth<wbr>Number</h3>
-					<ul class="tsd-signatures tsd-kind-function">
-						<li class="tsd-signature tsd-kind-icon">possible<wbr>Birth<wbr>Date<wbr>OfBirth<wbr>Number<span class="tsd-signature-symbol">(</span>elevenDigits<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Date</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/mikaello/norwegian-national-id-validator/blob/1ed3609/src/index.ts#L232">index.ts:232</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Get possible birth date from BirthNumber</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>elevenDigits: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>BirthNumber</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Date</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function">
-					<a name="possiblebirthdateofdnumber" class="tsd-anchor"></a>
-					<h3>possible<wbr>Birth<wbr>Date<wbr>OfDNumber</h3>
-					<ul class="tsd-signatures tsd-kind-function">
-						<li class="tsd-signature tsd-kind-icon">possible<wbr>Birth<wbr>Date<wbr>OfDNumber<span class="tsd-signature-symbol">(</span>elevenDigits<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Date</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/mikaello/norwegian-national-id-validator/blob/1ed3609/src/index.ts#L254">index.ts:254</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Get possible birth date from DNumber</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>elevenDigits: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>DNumber</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Date</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function">
-					<a name="possiblebirthdateofhnumber" class="tsd-anchor"></a>
-					<h3>possible<wbr>Birth<wbr>Date<wbr>OfHNumber</h3>
-					<ul class="tsd-signatures tsd-kind-function">
-						<li class="tsd-signature tsd-kind-icon">possible<wbr>Birth<wbr>Date<wbr>OfHNumber<span class="tsd-signature-symbol">(</span>elevenDigits<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Date</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/mikaello/norwegian-national-id-validator/blob/1ed3609/src/index.ts#L242">index.ts:242</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Get possible birth date from HNumber</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>elevenDigits: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>HNumber</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Date</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function">
-					<a name="possiblebirthdateofidnumber" class="tsd-anchor"></a>
-					<h3>possible<wbr>Birth<wbr>Date<wbr>OfId<wbr>Number</h3>
-					<ul class="tsd-signatures tsd-kind-function">
-						<li class="tsd-signature tsd-kind-icon">possible<wbr>Birth<wbr>Date<wbr>OfId<wbr>Number<span class="tsd-signature-symbol">(</span>elevenDigits<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Date</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/mikaello/norwegian-national-id-validator/blob/1ed3609/src/index.ts#L193">index.ts:193</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Get possible birth date from ID number</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>elevenDigits: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>IdNumber</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Date</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function">
 					<a name="validatenorwegianidnumber" class="tsd-anchor"></a>
 					<h3>validate<wbr>Norwegian<wbr>IdNumber</h3>
 					<ul class="tsd-signatures tsd-kind-function">
@@ -766,7 +517,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/mikaello/norwegian-national-id-validator/blob/1ed3609/src/index.ts#L144">index.ts:144</a></li>
+									<li>Defined in <a href="https://github.com/mikaello/norwegian-national-id-validator/blob/6bddb64/src/index.ts#L144">index.ts:144</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -775,8 +526,9 @@
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><pre><code class="language-javascript"><span class="hljs-keyword">import</span> { validateNorwegianIdNumber } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;norwegian-national-id-validator&#x27;</span>;
-<span class="hljs-keyword">const</span> valid = validateNorwegianIdNumber(<span class="hljs-number">0000000000</span>);</code></pre>
+									<dd><pre><code class="language-javascript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">validateNorwegianIdNumber</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;norwegian-national-id-validator&#039;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">valid</span><span style="color: #000000"> = </span><span style="color: #795E26">validateNorwegianIdNumber</span><span style="color: #000000">(</span><span style="color: #098658">0000000000</span><span style="color: #000000">);</span>
+</code></pre>
 									</dd>
 								</dl>
 							</div>
@@ -799,8 +551,8 @@
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
 				<ul>
-					<li class="globals current ">
-						<a href="index.html"><em>Globals</em></a>
+					<li class="current ">
+						<a href="index.html">Exports</a>
 					</li>
 				</ul>
 			</nav>
@@ -818,20 +570,11 @@
 					<li class=" tsd-kind-function tsd-is-private">
 						<a href="index.html#diffyears" class="tsd-kind-icon">diff<wbr>Years</a>
 					</li>
-					<li class=" tsd-kind-function tsd-is-private">
-						<a href="index.html#getbirthdate" class="tsd-kind-icon">get<wbr>Birth<wbr>Date</a>
-					</li>
 					<li class=" tsd-kind-function">
 						<a href="index.html#getgender" class="tsd-kind-icon">get<wbr>Gender</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="index.html#idnumbercontainsbirthdate" class="tsd-kind-icon">id<wbr>Number<wbr>Contains<wbr>Birth<wbr>Date</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="index.html#idnumbertype" class="tsd-kind-icon">id<wbr>Number<wbr>Type</a>
-					</li>
-					<li class=" tsd-kind-function tsd-is-private">
-						<a href="index.html#isvalidcheckdigit" class="tsd-kind-icon">is<wbr>Valid<wbr>Check<wbr>Digit</a>
 					</li>
 					<li class=" tsd-kind-function tsd-is-private">
 						<a href="index.html#isvalidcheckdigits" class="tsd-kind-icon">is<wbr>Valid<wbr>Check<wbr>Digits</a>
@@ -844,18 +587,6 @@
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="index.html#possibleagesofpersonwithidnumber" class="tsd-kind-icon">possible<wbr>Ages<wbr>OfPerson<wbr>With<wbr>IdNumber</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="index.html#possiblebirthdateofbirthnumber" class="tsd-kind-icon">possible<wbr>Birth<wbr>Date<wbr>OfBirth<wbr>Number</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="index.html#possiblebirthdateofdnumber" class="tsd-kind-icon">possible<wbr>Birth<wbr>Date<wbr>OfDNumber</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="index.html#possiblebirthdateofhnumber" class="tsd-kind-icon">possible<wbr>Birth<wbr>Date<wbr>OfHNumber</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="index.html#possiblebirthdateofidnumber" class="tsd-kind-icon">possible<wbr>Birth<wbr>Date<wbr>OfId<wbr>Number</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="index.html#validatenorwegianidnumber" class="tsd-kind-icon">validate<wbr>Norwegian<wbr>IdNumber</a>
