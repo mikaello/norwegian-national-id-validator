@@ -30,7 +30,6 @@
   "dependencies": {},
   "devDependencies": {
     "@types/jest": "^27.4.0",
-    "@types/mockdate": "^3.0.0",
     "@types/node": "^13.9.1",
     "jest": "^27.4.7",
     "mockdate": "^3.0.5",
