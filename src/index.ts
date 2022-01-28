@@ -47,6 +47,7 @@ export const NorwegianId = (idNumber: string) => {
     isMale: () => valid && getGender(idNumber) == Gender.Male,
     isFemale: () => valid && getGender(idNumber) == Gender.Female,
     age: () => possibleAgeOfPersonWithIdNumber(idNumber),
+    birthDate: () => valid && possibleBirthDateOfIdNumber(idNumber),
   };
 };
 
@@ -190,7 +191,7 @@ export function idNumberContainsBirthDate(elevenDigits: string): boolean {
  * Get possible birth date from ID number
  * @param elevenDigits IdNumber
  */
-function possibleBirthDateOfIdNumber(elevenDigits: string): Date | undefined {
+export function possibleBirthDateOfIdNumber(elevenDigits: string): Date | undefined {
   if (elevenDigits.length !== 11) return undefined;
   const type = idNumberType(elevenDigits);
   switch (type) {
