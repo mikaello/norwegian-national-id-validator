@@ -28,33 +28,36 @@ This package exports a functional and object-oriented API for your convenience.
 ### Object-oriented API
 
 ```js
-import { NorwegianId } from 'norwegian-national-id-validator';
+import { NorwegianId } from 'norwegian-national-id-validator';
 
 const validation = NorwegianId('29029600013');
 
-if (validation.isValid())
+console.log(validation.isValid())
 // => true
 
-if (validation.isBirthNumber())
+console.log(validation.isBirthNumber())
 // => true
 
-if (validation.isDNumber())
+console.log(validation.isDNumber())
 // => false
 
-if (validation.isHNumber())
+console.log(validation.isHNumber())
 // => false
 
-if (validation.isFhNumber())
+console.log(validation.isFhNumber())
 // => false
 
-if (validation.isMale())
+console.log(validation.isMale())
 // => false
 
-if (validation.isFemale())
+console.log(validation.isFemale())
 // => true
 
-if (validation.age())
+console.log(validation.age())
 // => 24
+
+console.log(validation.birthDate())
+// => Thu Feb 29 1996 [...]
 ```
 
 ### Functional API

@@ -20,6 +20,7 @@ norwegian-national-id-validator
 - [possibleAgeOfPersonWithIdNumber](README.md#possibleageofpersonwithidnumber)
 - [possibleAgesOfPersonWithIdNumber](README.md#possibleagesofpersonwithidnumber)
 - [validateNorwegianIdNumber](README.md#validatenorwegianidnumber)
+- [possibleBirthDateOfIdNumber](README.md#possibleBirthDateOfIdNumber)
 
 ## Functions
 
@@ -48,7 +49,7 @@ const valid = NorwegianId('0000000000');
 
 | Name | Type |
 | :------ | :------ |
-| `age` | () => `undefined` \| `number` |
+| `age` | () => `number` \| `undefined` |
 | `idNumber` | `string` |
 | `isBirthNumber` | () => `boolean` |
 | `isDNumber` | () => `boolean` |
@@ -57,6 +58,7 @@ const valid = NorwegianId('0000000000');
 | `isHNumber` | () => `boolean` |
 | `isMale` | () => `boolean` |
 | `isValid` | () => `boolean` |
+| `birthDate` | () => `Date` \| `undefined` |
 
 ___
 
@@ -213,3 +215,21 @@ const valid = validateNorwegianIdNumber(0000000000);
 `boolean`
 
 `true` for valid, and `false` for invalid ID number.
+
+___
+
+### possibleBirthDateOfIdNumber
+
+▸ **possibleBirthDateOfIdNumber**(`elevenDigits`): `Date` \| `undefined`
+
+Returns the birth date of a person with the given Norwegian national identity number as Date object. Returns `undefined` when birth date could not be determined (e.g. for FH-numbers and invalid ID-numbers).
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `elevenDigits` | `string` | Identification number |
+
+#### Returns
+
+`Date` \| `undefined`
