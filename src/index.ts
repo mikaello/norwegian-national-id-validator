@@ -1,3 +1,46 @@
+type NorwegianIdObject = {
+  /** The ID this object was created with */
+  idNumber: string,
+
+  isValid: () => boolean,
+
+  /**
+   * A national identity number (birth number) is an ID number for you who
+   * have a residence permit and are going to live in Norway for more than
+   * six months.
+   */
+  isBirthNumber: () => boolean
+
+  /**
+   * A D number is a temporary identification number that you get if you have
+   * applied for protection (asylum), or if you have a residence permit and
+   * are going to stay in Norway for less than six months.
+   */
+  isDNumber: () => boolean,
+
+  /**
+   * A H number is a number used for assistance, a unique identification of a
+   * person that does not have a national ID or a D number or in cases where
+   * this is not known. A H number contains information about age and gender.
+   */
+  isHNumber: () => boolean
+
+  /**
+   * A FH number is used in health care to uniquely identify patients that
+   * does not have a known national ID or D number. A FH number does not have
+   * any information about age or gender.
+   */
+  isFhNumber: () => boolean,
+
+  isMale: () => boolean,
+
+  isFemale: () => boolean,
+
+  age: () => number | undefined
+
+  birthDate: () => Date | undefined
+}
+
 /**
  * Object-oriented API for Norwegian National ID Validator
  * @example
@@ -8,46 +51,25 @@
  * ```
  * @param idNumber norwegian social security number
  */
-export const NorwegianId = (idNumber: string) => {
+export const NorwegianId = (idNumber: string): NorwegianIdObject => {
   const valid = validateNorwegianIdNumber(idNumber);
 
   return {
-    /** The ID this object was created with */
     idNumber,
     isValid: () => valid,
 
-    /**
-     * A national identity number (birth number) is an ID number for you who
-     * have a residence permit and are going to live in Norway for more than
-     * six months.
-     */
     isBirthNumber: () =>
       valid && idNumberType(idNumber) == IDNumberType.BirthNumber,
 
-    /**
-     * A D number is a temporary identification number that you get if you have
-     * applied for protection (asylum), or if you have a residence permit and
-     * are going to stay in Norway for less than six months.
-     */
     isDNumber: () => valid && idNumberType(idNumber) == IDNumberType.DNumber,
 
-    /**
-     * A H number is a number used for assistance, a unique identification of a
-     * person that does not have a national ID or a D number or in cases where
-     * this is not known. A H number contains information about age and gender.
-     */
     isHNumber: () => valid && idNumberType(idNumber) == IDNumberType.HNumber,
 
-    /**
-     * A FH number is used in health care to uniquely identify patients that
-     * does not have a known national ID or D number. A FH number does not have
-     * any information about age or gender.
-     */
     isFhNumber: () => valid && idNumberType(idNumber) == IDNumberType.FHNumber,
     isMale: () => valid && getGender(idNumber) == Gender.Male,
     isFemale: () => valid && getGender(idNumber) == Gender.Female,
     age: () => possibleAgeOfPersonWithIdNumber(idNumber),
-    birthDate: () => valid && possibleBirthDateOfIdNumber(idNumber),
+    birthDate: () => (valid && possibleBirthDateOfIdNumber(idNumber)) || undefined,
   };
 };
 
