@@ -5,6 +5,7 @@ describe('test of object oriented API for ID number validation', () => {
   beforeEach(() => {
     set('06/18/2017');
   });
+  
   afterEach(() => {
     reset();
   });
