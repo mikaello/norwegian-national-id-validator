@@ -1,45 +1,45 @@
-type NorwegianIdObject = {
+export type NorwegianIdObject = {
   /** The ID this object was created with */
-  idNumber: string,
+  idNumber: string;
 
-  isValid: () => boolean,
+  isValid: () => boolean;
 
   /**
    * A national identity number (birth number) is an ID number for you who
    * have a residence permit and are going to live in Norway for more than
    * six months.
    */
-  isBirthNumber: () => boolean
+  isBirthNumber: () => boolean;
 
   /**
    * A D number is a temporary identification number that you get if you have
    * applied for protection (asylum), or if you have a residence permit and
    * are going to stay in Norway for less than six months.
    */
-  isDNumber: () => boolean,
+  isDNumber: () => boolean;
 
   /**
    * A H number is a number used for assistance, a unique identification of a
    * person that does not have a national ID or a D number or in cases where
    * this is not known. A H number contains information about age and gender.
    */
-  isHNumber: () => boolean
+  isHNumber: () => boolean;
 
   /**
    * A FH number is used in health care to uniquely identify patients that
    * does not have a known national ID or D number. A FH number does not have
    * any information about age or gender.
    */
-  isFhNumber: () => boolean,
+  isFhNumber: () => boolean;
 
-  isMale: () => boolean,
+  isMale: () => boolean;
 
-  isFemale: () => boolean,
+  isFemale: () => boolean;
 
-  age: () => number | undefined
+  age: () => number | undefined;
 
-  birthDate: () => Date | undefined
-}
+  birthDate: () => Date | undefined;
+};
 
 /**
  * Object-oriented API for Norwegian National ID Validator
@@ -69,7 +69,8 @@ export const NorwegianId = (idNumber: string): NorwegianIdObject => {
     isMale: () => valid && getGender(idNumber) == Gender.Male,
     isFemale: () => valid && getGender(idNumber) == Gender.Female,
     age: () => possibleAgeOfPersonWithIdNumber(idNumber),
-    birthDate: () => (valid && possibleBirthDateOfIdNumber(idNumber)) || undefined,
+    birthDate: () =>
+      (valid && possibleBirthDateOfIdNumber(idNumber)) || undefined,
   };
 };
 
@@ -213,7 +214,9 @@ export function idNumberContainsBirthDate(elevenDigits: string): boolean {
  * Get possible birth date from ID number
  * @param elevenDigits IdNumber
  */
-export function possibleBirthDateOfIdNumber(elevenDigits: string): Date | undefined {
+export function possibleBirthDateOfIdNumber(
+  elevenDigits: string,
+): Date | undefined {
   if (elevenDigits.length !== 11) return undefined;
   const type = idNumberType(elevenDigits);
   switch (type) {
