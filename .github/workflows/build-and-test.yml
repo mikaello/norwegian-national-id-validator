@@ -23,3 +23,5 @@ jobs:
     - run: yarn build
     - name: Run the tests 👀
       run: yarn test
+    - name: Verify that documentation can be created 📖
+      run: yarn generate-html-docs
