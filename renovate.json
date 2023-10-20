@@ -2,6 +2,7 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["github>mikaello/renovate-presets"],
   "schedule": ["before 3am on Monday"],
+  "rangeStrategy": "pin",
   "packageRules": [
     {
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
