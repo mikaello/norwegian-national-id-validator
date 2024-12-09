@@ -297,7 +297,7 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@gerrit0/mini-shiki@^1.23.2":
+"@gerrit0/mini-shiki@^1.24.0":
   version "1.24.1"
   resolved "https://registry.yarnpkg.com/@gerrit0/mini-shiki/-/mini-shiki-1.24.1.tgz#60ef10f4e2cfac7a9223e10b88c128438aa44fd8"
   integrity sha512-PNP/Gjv3VqU7z7DjRgO3F9Ok5frTKqtpV+LJW1RzMcr2zpRk0ulhEWnbcNGXzPC7BZyWMIHrkfQX2GZRfxrn6Q==
@@ -2287,12 +2287,12 @@ typedoc-plugin-markdown@4.2.10:
   resolved "https://registry.yarnpkg.com/typedoc-plugin-markdown/-/typedoc-plugin-markdown-4.2.10.tgz#cd386e9f2dec122cae79e487983811d92ac37161"
   integrity sha512-PLX3pc1/7z13UJm4TDE9vo9jWGcClFUErXXtd5LdnoLjV6mynPpqZLU992DwMGFSRqJFZeKbVyqlNNeNHnk2tQ==
 
-typedoc@0.27.1:
-  version "0.27.1"
-  resolved "https://registry.yarnpkg.com/typedoc/-/typedoc-0.27.1.tgz#fe7590c5682ca0f20c283850cf3e21a43b1d8e44"
-  integrity sha512-cbFtNFpkCtHAHRvMnCDdtM2+xhO2uiJAcw4ooLmVMuaY9yLJswKvi6wOwPZgTnKKnm/HKpO/Ub6DVk4KRf/vRg==
+typedoc@0.27.3:
+  version "0.27.3"
+  resolved "https://registry.yarnpkg.com/typedoc/-/typedoc-0.27.3.tgz#0fad232181ce0ac7eda27fe78e56a4b863e1fe59"
+  integrity sha512-oWT7zDS5oIaxYL5yOikBX4cL99CpNAZn6mI24JZQxsYuIHbtguSSwJ7zThuzNNwSE0wqhlfTSd99HgqKu2aQXQ==
   dependencies:
-    "@gerrit0/mini-shiki" "^1.23.2"
+    "@gerrit0/mini-shiki" "^1.24.0"
     lunr "^2.3.9"
     markdown-it "^14.1.0"
     minimatch "^9.0.5"
