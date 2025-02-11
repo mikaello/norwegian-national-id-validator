@@ -80,7 +80,7 @@ export const NorwegianId = (idNumber: string): NorwegianIdObject => {
  * @param endDate Date instance
  * @private
  */
-export function diffYears(startDate: Date, endDate: Date) {
+export function diffYears(startDate: Date, endDate: Date): number {
   const yStart = startDate.getFullYear();
   const mStart = startDate.getMonth();
   const dStart = startDate.getDate();

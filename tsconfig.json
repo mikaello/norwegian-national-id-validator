@@ -1,15 +1,21 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": ["es6"],
+    "verbatimModuleSyntax": true,
+    "isolatedDeclarations": true,
+    "target": "ES2022",
     "downlevelIteration": true,
-    "module": "commonjs",
+    "module": "Node16",
+    "noUncheckedSideEffectImports": true,
     "noImplicitAny": true,
     "strict": true,
     "preserveConstEnums": true,
     "declaration": true,
-    "sourceMap": false,
+    "sourceMap": true,
     "outDir": "dist"
   },
-  "include": ["src/**/*", "__tests__/**/*", "examples/test.ts"]
+  "include": [
+    "src/**/*",
+    "__tests__/**/*",
+    "examples/test.ts"
+  ]
 }
