@@ -1,13 +1,14 @@
 {
   "compilerOptions": {
-    "target": "ES2017",
+    "target": "ES2022",
     "module": "commonjs",
     "rootDir": "./src",
+    "module": "Node16",
     "noImplicitAny": true,
     "strict": true,
     "preserveConstEnums": true,
     "declaration": true,
-    "sourceMap": false,
+    "sourceMap": true,
     "outDir": "dist"
   },
   "include": ["src/**/*"]
