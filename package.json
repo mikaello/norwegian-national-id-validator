@@ -4,10 +4,11 @@
   "description": "Validate norwegian national identity numbers",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "type": "module",
   "scripts": {
     "generate-docs": "typedoc --readme none --plugin typedoc-plugin-markdown --disableSources --excludePrivate false --out docs src",
     "generate-html-docs": "typedoc --readme none --out html src",
-    "prepare": "npm run build && cp export.flow.js dist/index.flow.js",
+    "prepare": "npm run build",
     "build": "tsc",
     "start": "tsc --watch",
     "test": "jest"
@@ -45,7 +46,7 @@
   },
   "jest": {
     "transform": {
-      "^.+\\.tsx?$": "ts-jest"
+      "^.+\\.tsx?$": "ts-jest" // currently failing the tests, see https://github.com/kulshekhar/ts-jest/issues/4081
     }
   }
 }
