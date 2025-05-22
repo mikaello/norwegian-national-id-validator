@@ -166,7 +166,7 @@ export enum Gender {
  * @returns `true` for valid, and `false` for invalid ID number.
  */
 export function validateNorwegianIdNumber(idNumber: string): boolean {
-  const trimmed = idNumber.trim();
+  const trimmed = idNumber?.trim() ?? '';
   if (isNaN(Number(trimmed))) return false;
   if (trimmed.length !== 11) return false;
   if (!isValidCheckDigits(trimmed)) return false;
@@ -217,7 +217,7 @@ export function idNumberContainsBirthDate(elevenDigits: string): boolean {
 export function possibleBirthDateOfIdNumber(
   elevenDigits: string,
 ): Date | undefined {
-  if (elevenDigits.length !== 11) return undefined;
+  if (elevenDigits?.length !== 11) return undefined;
   const type = idNumberType(elevenDigits);
   switch (type) {
     case IDNumberType.BirthNumber:
@@ -356,7 +356,7 @@ function isValidCheckDigit(
  * @param elevenDigits ID number
  */
 export function getGender(elevenDigits: string): Gender | undefined {
-  if (elevenDigits.length != 11) {
+  if (elevenDigits?.length != 11) {
     return undefined;
   } else if (idNumberType(elevenDigits) == IDNumberType.FHNumber) {
     return undefined;
