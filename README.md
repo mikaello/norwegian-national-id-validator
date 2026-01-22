@@ -1,11 +1,8 @@
 # norwegian-national-id-validator
 
-[![Travis build status](https://travis-ci.org/mikaello/norwegian-national-id-validator.svg?branch=master)](https://travis-ci.org/mikaello/norwegian-national-id-validator)
 [![npm](https://img.shields.io/npm/v/norwegian-national-id-validator.svg?style=flat-square)](https://www.npmjs.com/package/norwegian-national-id-validator)
 
 Validate Norwegian national identity numbers ([birth number](https://en.wikipedia.org/wiki/National_identification_number#Norway) ([fødselsnummer](https://no.wikipedia.org/wiki/F%C3%B8dselsnummer)), D-number, H-number and FH-number).
-
-The NPM module is ES5, but TypeScript and Flow types is also exported. Types for Flow is generated with [Flowgen](https://github.com/joarwilk/flowgen).
 
 ## Installation
 
@@ -13,12 +10,6 @@ Install the package via `npm`:
 
 ```
 npm install --save norwegian-national-id-validator
-```
-
-or
-
-```
-yarn add norwegian-national-id-validator
 ```
 
 ## Usage
@@ -32,31 +23,31 @@ import { NorwegianId } from 'norwegian-national-id-validator';
 
 const validation = NorwegianId('29029600013');
 
-console.log(validation.isValid())
+console.log(validation.isValid());
 // => true
 
-console.log(validation.isBirthNumber())
+console.log(validation.isBirthNumber());
 // => true
 
-console.log(validation.isDNumber())
+console.log(validation.isDNumber());
 // => false
 
-console.log(validation.isHNumber())
+console.log(validation.isHNumber());
 // => false
 
-console.log(validation.isFhNumber())
+console.log(validation.isFhNumber());
 // => false
 
-console.log(validation.isMale())
+console.log(validation.isMale());
 // => false
 
-console.log(validation.isFemale())
+console.log(validation.isFemale());
 // => true
 
-console.log(validation.age())
+console.log(validation.age());
 // => 24
 
-console.log(validation.birthDate())
+console.log(validation.birthDate());
 // => Thu Feb 29 1996 [...]
 ```
 
@@ -64,7 +55,8 @@ console.log(validation.birthDate())
 
 #### validateNorwegianIdNumber(value)
 
-This function checks if the given value is a valid Norwegian national identity number. Returns `true` for valid, and `false` for invalid ID-number.
+This function checks if the given value is a valid Norwegian national identity number.
+Returns `true` for valid, and `false` for invalid ID-number.
 
 **Examples**
 
@@ -98,7 +90,7 @@ possibleAgeOfPersonWithIdNumber('03110175225');
 
 ## Documentation
 
-Apart from this README, you can find details and examples of using the SDK in the following places:  
+Apart from this README, you can find details and examples of using the SDK in the following places:
 
 - [SDK Documentation](docs/README.md)
 - [Examples](examples/)
