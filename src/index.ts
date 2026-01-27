@@ -200,7 +200,7 @@ export function possibleAgeOfPersonWithIdNumber(
   }
 
   const years = diffYears(new Date(), birthDate);
-  return years >= 0 && years < 125 ? years : undefined;
+  return years >= 0 ? years : undefined;
 }
 /**
  * Check if idNumber contains birth date
