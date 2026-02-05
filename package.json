@@ -1,6 +1,6 @@
 {
   "name": "norwegian-national-id-validator",
-  "version": "3.1.1",
+  "version": "3.1.2",
   "description": "Validate norwegian national identity numbers",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
