@@ -2800,10 +2800,10 @@ test-exclude@^6.0.0:
     glob "^7.1.4"
     minimatch "^3.0.4"
 
-timezone-mock@1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/timezone-mock/-/timezone-mock-1.4.0.tgz#d5ae0b792a135d53349f498f21b13322307591fe"
-  integrity sha512-LMnGHctfNWTfGyNghWMGjaIzBQqtnHzOUzi9cL0nDS4dx5yuCwbD7dn9qZbU4jT1HMqQW1khEOloXUTTuxiSaQ==
+timezone-mock@1.4.2:
+  version "1.4.2"
+  resolved "https://registry.yarnpkg.com/timezone-mock/-/timezone-mock-1.4.2.tgz#8ef961612f9a6dfb16262cb11a43bb7fa66f031a"
+  integrity sha512-RgPQkSrARNHBnchuFpjrYf97uWgEaseCXK2asSeGcgUzRUO3cBR9Zu0uO1z2Eyi/TQsQtHIvQLi0br30COHWUA==
 
 tmpl@1.0.5:
   version "1.0.5"
