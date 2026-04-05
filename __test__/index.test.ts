@@ -161,6 +161,17 @@ describe('helper functions', () => {
     expect(diffYears(new Date('1995-01-01'), new Date('1993-06-01'))).toBe(1);
   });
 
+  test('diffYears() counts leap day birthday on Feb 28 in non-leap years', () => {
+    const leapDayBirth = new Date('2000-02-29');
+    expect(diffYears(new Date('2025-02-27'), leapDayBirth)).toBe(24);
+    expect(diffYears(new Date('2025-02-28'), leapDayBirth)).toBe(25);
+    expect(diffYears(new Date('2025-03-01'), leapDayBirth)).toBe(25);
+    // Actual leap day — birthday on Feb 29
+    expect(diffYears(new Date('2024-02-28'), leapDayBirth)).toBe(23);
+    expect(diffYears(new Date('2024-02-29'), leapDayBirth)).toBe(24);
+    expect(diffYears(new Date('2024-03-01'), leapDayBirth)).toBe(24);
+  });
+
   test('isValiddate() returns valid for valid dates', () => {
     expect(
       isValidDate(new Date('1995-01-20'), '1995', '01', '20'),

@@ -89,8 +89,14 @@ export function diffYears(startDate: Date, endDate: Date): number {
   const mEnd = endDate.getMonth();
   const dEnd = endDate.getDate();
 
+  // Feb 29 birthdays are observed on Feb 28 in non-leap years
+  const isLeapYear = (y: number) =>
+    (y % 4 === 0 && y % 100 !== 0) || y % 400 === 0;
+  const effectiveDEnd =
+    mEnd === 1 && dEnd === 29 && !isLeapYear(yStart) ? 28 : dEnd;
+
   const diff = yStart - yEnd;
-  if (mEnd > mStart || (mEnd === mStart && dEnd > dStart)) {
+  if (mEnd > mStart || (mEnd === mStart && effectiveDEnd > dStart)) {
     return diff - 1;
   }
 
