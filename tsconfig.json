@@ -1,9 +1,8 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": ["es6"],
-    "downlevelIteration": true,
+    "target": "ES2017",
     "module": "commonjs",
+    "rootDir": "./src",
     "noImplicitAny": true,
     "strict": true,
     "preserveConstEnums": true,
@@ -11,5 +10,5 @@
     "sourceMap": false,
     "outDir": "dist"
   },
-  "include": ["src/**/*", "__tests__/**/*", "examples/test.ts"]
+  "include": ["src/**/*"]
 }
