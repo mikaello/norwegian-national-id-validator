@@ -11,7 +11,7 @@
     "prepare": "npm run build",
     "build": "tsc",
     "start": "tsc --watch",
-    "test": "jest"
+    "test": "vitest run"
   },
   "homepage": "https://github.com/mikaello/norwegian-national-id-validator",
   "repository": {
@@ -30,23 +30,16 @@
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
-    "@types/jest": "30.0.0",
     "@types/node": "24.12.0",
-    "jest": "30.3.0",
     "mockdate": "3.0.5",
     "timezone-mock": "1.4.2",
-    "ts-jest": "29.4.6",
     "typedoc": "0.28.18",
     "typedoc-plugin-markdown": "4.11.0",
-    "typescript": "6.0.2"
+    "typescript": "6.0.2",
+    "vitest": "3.1.1"
   },
   "prettier": {
     "trailingComma": "all",
     "singleQuote": true
-  },
-  "jest": {
-    "transform": {
-      "^.+\\.tsx?$": ["ts-jest", { "tsconfig": "tsconfig.test.json" }] // currently failing the tests, see https://github.com/kulshekhar/ts-jest/issues/4081
-    }
   }
 }
