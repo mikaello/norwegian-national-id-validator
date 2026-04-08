@@ -16,9 +16,9 @@ jobs:
 
       - name: Install and Build 🔧
         run: |
-          yarn install --frozen-lockfile
-          yarn build
-          yarn generate-html-docs
+          npm ci
+          npm run build
+          npm run generate-html-docs
           ls -ltur html
 
       - name: Deploy 🚀
