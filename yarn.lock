@@ -2847,10 +2847,10 @@ test-exclude@^6.0.0:
     glob "^7.1.4"
     minimatch "^3.0.4"
 
-timezone-mock@1.4.2:
-  version "1.4.2"
-  resolved "https://registry.yarnpkg.com/timezone-mock/-/timezone-mock-1.4.2.tgz#8ef961612f9a6dfb16262cb11a43bb7fa66f031a"
-  integrity sha512-RgPQkSrARNHBnchuFpjrYf97uWgEaseCXK2asSeGcgUzRUO3cBR9Zu0uO1z2Eyi/TQsQtHIvQLi0br30COHWUA==
+timezone-mock@1.4.3:
+  version "1.4.3"
+  resolved "https://registry.yarnpkg.com/timezone-mock/-/timezone-mock-1.4.3.tgz#3d04acff3be60d00240dfb0c3480f30415d80032"
+  integrity sha512-sO5xj1j5bXgKPgUzbM/t0l2O3hZ2F22cczYRo7Kj2Pm8wfbMMw3ohyAunBBP0Vltkd4X3tF0rFu0WAlGvAClGg==
 
 tmpl@1.0.5:
   version "1.0.5"
