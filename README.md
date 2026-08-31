@@ -1,6 +1,5 @@
 # norwegian-national-id-validator
 
-[![Travis build status](https://travis-ci.org/mikaello/norwegian-national-id-validator.svg?branch=master)](https://travis-ci.org/mikaello/norwegian-national-id-validator)
 [![npm](https://img.shields.io/npm/v/norwegian-national-id-validator.svg?style=flat-square)](https://www.npmjs.com/package/norwegian-national-id-validator)
 
 Validate Norwegian national identity numbers ([birth number](https://en.wikipedia.org/wiki/National_identification_number#Norway) ([fødselsnummer](https://no.wikipedia.org/wiki/F%C3%B8dselsnummer)), D-number, H-number and FH-number).
@@ -12,7 +11,7 @@ The NPM module is ES5, but TypeScript and Flow types is also exported. Types for
 Install the package via `npm`:
 
 ```
-npm install --save norwegian-national-id-validator
+npm install norwegian-national-id-validator
 ```
 
 or
@@ -113,13 +112,11 @@ npm test
 
 ## Other relevant projects
 
-- [Censorbot by Vipps](https://github.com/vippsas/vipps-developers/tree/master/housekeeping/censorbot)<br />
+- [Censorbot by Vipps](https://github.com/vippsas/vipps-developers/tree/master/housekeeping/censorbot):
   Censorbot looks for patterns in numbers containing 11 digits posted in Slack, using this package.
-
-- [ng-input-validators](https://github.com/hansamaligamage/ng-input-validations/tree/master/input-validations)<br />
+- [ng-input-validators](https://github.com/hansamaligamage/ng-input-validations/tree/master/input-validations):
   Code samples for Angular.
-
-- [cobraz/norwegian-ssn-graphql-scalar](https://github.com/cobraz/norwegian-ssn-graphql-scalar)<br />
+- [cobraz/norwegian-ssn-graphql-scalar](https://github.com/cobraz/norwegian-ssn-graphql-scalar):
   Custom GraphQL scalar type that utilizes this library.
 
 ## License
