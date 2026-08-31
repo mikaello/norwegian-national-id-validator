@@ -33,7 +33,7 @@
   "devDependencies": {
     "@types/jest": "30.0.0",
     "@types/node": "24.13.3",
-    "jest": "30.4.2",
+    "jest": "30.5.0",
     "mockdate": "3.0.5",
     "prettier": "3.9.6",
     "timezone-mock": "1.4.3",
