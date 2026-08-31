@@ -10,7 +10,9 @@
     "prepare": "npm run build && cp export.flow.js dist/index.flow.js",
     "build": "tsc",
     "start": "tsc --watch",
-    "test": "jest"
+    "test": "jest",
+    "format": "prettier --write . --ignore-path=export.flow.js",
+    "format:check": "prettier --check . --ignore-path=export.flow.js"
   },
   "homepage": "https://github.com/mikaello/norwegian-national-id-validator",
   "repository": {
@@ -33,6 +35,7 @@
     "@types/node": "24.13.3",
     "jest": "30.4.2",
     "mockdate": "3.0.5",
+    "prettier": "3.9.6",
     "timezone-mock": "1.4.3",
     "ts-jest": "29.4.12",
     "typedoc": "0.28.20",
@@ -45,7 +48,12 @@
   },
   "jest": {
     "transform": {
-      "^.+\\.tsx?$": ["ts-jest", { "tsconfig": "tsconfig.test.json" }]
+      "^.+\\.tsx?$": [
+        "ts-jest",
+        {
+          "tsconfig": "tsconfig.test.json"
+        }
+      ]
     }
   }
 }
