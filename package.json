@@ -10,7 +10,9 @@
     "prepare": "npm run build && cp export.flow.js dist/index.flow.js",
     "build": "tsc",
     "start": "tsc --watch",
-    "test": "jest"
+    "test": "jest",
+    "format": "prettier --write . --ignore-path=export.flow.js",
+    "format:check": "prettier --check . --ignore-path=export.flow.js"
   },
   "homepage": "https://github.com/mikaello/norwegian-national-id-validator",
   "repository": {
