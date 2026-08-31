@@ -75,7 +75,7 @@ export const NorwegianId = (idNumber: string): NorwegianIdObject => {
 };
 
 /**
- * Calculated the difference betweeen two dates.
+ * Calculate the difference between two dates.
  * @param startDate Date instance
  * @param endDate Date instance
  * @private
