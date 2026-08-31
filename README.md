@@ -31,31 +31,31 @@ import { NorwegianId } from 'norwegian-national-id-validator';
 
 const validation = NorwegianId('29029600013');
 
-console.log(validation.isValid())
+console.log(validation.isValid());
 // => true
 
-console.log(validation.isBirthNumber())
+console.log(validation.isBirthNumber());
 // => true
 
-console.log(validation.isDNumber())
+console.log(validation.isDNumber());
 // => false
 
-console.log(validation.isHNumber())
+console.log(validation.isHNumber());
 // => false
 
-console.log(validation.isFhNumber())
+console.log(validation.isFhNumber());
 // => false
 
-console.log(validation.isMale())
+console.log(validation.isMale());
 // => false
 
-console.log(validation.isFemale())
+console.log(validation.isFemale());
 // => true
 
-console.log(validation.age())
+console.log(validation.age());
 // => 24
 
-console.log(validation.birthDate())
+console.log(validation.birthDate());
 // => Thu Feb 29 1996 [...]
 ```
 
@@ -97,7 +97,7 @@ possibleAgeOfPersonWithIdNumber('03110175225');
 
 ## Documentation
 
-Apart from this README, you can find details and examples of using the SDK in the following places:  
+Apart from this README, you can find details and examples of using the SDK in the following places:
 
 - [SDK Documentation](docs/README.md)
 - [Examples](examples/)
