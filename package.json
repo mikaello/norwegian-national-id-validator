@@ -36,7 +36,7 @@
     "timezone-mock": "1.4.3",
     "ts-jest": "29.4.12",
     "typedoc": "0.28.20",
-    "typedoc-plugin-markdown": "4.12.0",
+    "typedoc-plugin-markdown": "4.13.0",
     "typescript": "6.0.3"
   },
   "prettier": {
