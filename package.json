@@ -10,7 +10,7 @@
     "prepare": "npm run build && cp export.flow.js dist/index.flow.js",
     "build": "tsc",
     "start": "tsc --watch",
-    "test": "jest",
+    "test": "vitest run",
     "format": "prettier --write . --ignore-path=export.flow.js",
     "format:check": "prettier --check . --ignore-path=export.flow.js"
   },
@@ -29,31 +29,18 @@
   ],
   "author": "Jarle Fagerheim <jarle@fagerbua.no>",
   "license": "MIT",
-  "dependencies": {},
   "devDependencies": {
-    "@types/jest": "30.0.0",
     "@types/node": "24.13.5",
-    "jest": "30.5.1",
     "mockdate": "3.0.5",
     "prettier": "3.9.8",
     "timezone-mock": "1.4.3",
-    "ts-jest": "29.4.12",
     "typedoc": "0.28.20",
     "typedoc-plugin-markdown": "4.13.0",
-    "typescript": "6.0.3"
+    "typescript": "6.0.3",
+    "vitest": "5.0.1"
   },
   "prettier": {
     "trailingComma": "all",
     "singleQuote": true
-  },
-  "jest": {
-    "transform": {
-      "^.+\\.tsx?$": [
-        "ts-jest",
-        {
-          "tsconfig": "tsconfig.test.json"
-        }
-      ]
-    }
   }
 }
