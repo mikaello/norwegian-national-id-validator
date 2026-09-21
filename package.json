@@ -2,13 +2,31 @@
   "name": "norwegian-national-id-validator",
   "version": "3.1.3",
   "description": "Validate norwegian national identity numbers",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.esm.js",
+  "types": "./dist/cjs/index.d.ts",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/esm/index.esm.d.ts",
+        "default": "./dist/esm/index.esm.js"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      }
+    }
+  },
   "scripts": {
     "generate-docs": "typedoc --readme none --plugin typedoc-plugin-markdown --disableSources --excludePrivate false --out docs src",
     "generate-html-docs": "typedoc --readme none --out html src",
-    "prepare": "npm run build && cp export.flow.js dist/index.flow.js",
-    "build": "tsc",
+    "prepare": "npm run build && npm run copy-flow",
+    "clean": "node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"",
+    "build": "npm run clean && npm run build:esm && npm run build:cjs",
+    "build:esm": "tsc",
+    "build:cjs": "tsc -p tsconfig.cjs.json && cp package.cjs.json dist/cjs/package.json",
+    "copy-flow": "cp export.flow.js dist/index.flow.js && cp export.flow.js dist/esm/index.esm.js.flow && cp export.flow.js dist/cjs/index.js.flow",
     "start": "tsc --watch",
     "test": "vitest run",
     "format": "prettier --write . --ignore-path=export.flow.js",
