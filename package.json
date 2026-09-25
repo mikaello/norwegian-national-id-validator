@@ -32,11 +32,8 @@
     "format": "prettier --write . --ignore-path=export.flow.js",
     "format:check": "prettier --check . --ignore-path=export.flow.js"
   },
-  "homepage": "https://github.com/mikaello/norwegian-national-id-validator",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/mikaello/norwegian-national-id-validator.git"
-  },
+  "homepage": "https://mikaello.github.io/norwegian-national-id-validator",
+  "repository": "github:mikaello/norwegian-national-id-validator",
   "bugs": "https://github.com/mikaello/norwegian-national-id-validator/issues",
   "keywords": [
     "identity-number",
