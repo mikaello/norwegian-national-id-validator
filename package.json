@@ -47,7 +47,7 @@
   "devDependencies": {
     "@types/node": "24.19.2",
     "mockdate": "3.0.5",
-    "prettier": "3.9.9",
+    "prettier": "3.9.10",
     "timezone-mock": "1.4.3",
     "typedoc": "0.28.20",
     "typedoc-plugin-markdown": "4.13.1",
