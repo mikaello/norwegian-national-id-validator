@@ -45,7 +45,7 @@
   "author": "Jarle Fagerheim <jarle@fagerbua.no>",
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "24.19.2",
+    "@types/node": "26.6.6",
     "mockdate": "3.0.5",
     "prettier": "3.9.10",
     "timezone-mock": "1.4.3",
