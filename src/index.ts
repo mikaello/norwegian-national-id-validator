@@ -305,10 +305,16 @@ function getBirthDate(
   const ageGroupNumber = parseInt(elevenDigitsWithDDMMYY.slice(6, 9));
 
   let centuryPrefix = '20';
-  if (ageGroupNumber >= 0 && ageGroupNumber < 500) {
+  if (idNumberType === IDNumberType.DNumber) {
+    // If centuryPrefix 20 creates a date in the future, the century prefix is 19
+    if (
+      new Date(['20' + YY, MM, DD].join('-') + 'T00:00:00').getTime() >
+      Date.now()
+    ) {
+      centuryPrefix = '19';
+    }
+  } else if (ageGroupNumber >= 0 && ageGroupNumber < 500) {
     centuryPrefix = '19';
-  } else if (idNumberType === IDNumberType.DNumber) {
-    centuryPrefix = '20';
   } else if (ageGroupNumber >= 500 && ageGroupNumber < 750 && YY_int >= 54) {
     centuryPrefix = '18';
   } else if (ageGroupNumber >= 900 && ageGroupNumber < 1000 && YY_int >= 40) {

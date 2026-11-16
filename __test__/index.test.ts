@@ -11,6 +11,7 @@ import {
   Gender,
   NorwegianId,
   isValidCheckDigits,
+  possibleBirthDateOfIdNumber,
 } from '../src/index';
 
 describe('Norwegian ID number validation', () => {
@@ -51,18 +52,27 @@ describe('Norwegian ID number validation', () => {
     }
   });
 
-  it('does not accept D numbers from future', () => {
-    // born in 2063
+  it('accept D numbers from future by old assignment-rules', () => {
+    // born in 2061 -> assume 1961
     expect(isValidCheckDigits('71106177273')).toBeTruthy();
-    expect(NorwegianId('71106177273').isDNumber()).toBeFalsy();
+    expect(NorwegianId('71106177273').isDNumber()).toBeTruthy();
+    expect(possibleBirthDateOfIdNumber('71106177273')?.getFullYear()).toEqual(
+      1961,
+    );
 
-    // born in 2097
+    // born in 2097 -> assume 1997
     expect(isValidCheckDigits('71019762194')).toBeTruthy();
-    expect(NorwegianId('71019762194').isDNumber()).toBeFalsy();
+    expect(NorwegianId('71019762194').isDNumber()).toBeTruthy();
+    expect(possibleBirthDateOfIdNumber('71019762194')?.getFullYear()).toEqual(
+      1997,
+    );
 
-    // born in 2097
+    // born in 2097  -> assume 1997
     expect(isValidCheckDigits('71019799918')).toBeTruthy();
-    expect(NorwegianId('71019799918').isDNumber()).toBeFalsy();
+    expect(NorwegianId('71019799918').isDNumber()).toBeTruthy();
+    expect(possibleBirthDateOfIdNumber('71019799918')?.getFullYear()).toEqual(
+      1997,
+    );
   });
 
   it('does not accept non D numbers when checking for D number', () => {
@@ -91,7 +101,7 @@ describe('Norwegian ID number validation', () => {
     }
 
     // Testpasient 6 - D-number is invalid
-    expect(validateNorwegianIdNumber('70019950032')).toBeFalsy();
+    expect(validateNorwegianIdNumber('70019950031')).toBeFalsy();
   });
 });
 
